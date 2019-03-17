@@ -46,6 +46,9 @@
     <None Include="C:\SDKS\LUA\lua53.dll">
       <Filter>Engine\Core\Lua</Filter>
     </None>
+    <None Include="C:\SDKS\glew-2.1.0\bin\Release\x64\glew32.dll">
+      <Filter>Engine\Gfx\OpenGl</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\main.cpp">
