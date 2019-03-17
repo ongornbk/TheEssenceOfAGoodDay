@@ -1,51 +1,39 @@
 #include "..\Core\Src\corestd.h"
 #include "..\Core\Src\Queue.h"
-#include "..\Core\Src\Thread.h"
+#include "..\Core\Src\ThreadPool.h"
+#include "..\Gfx\OpenGl\OpenGlWindow.h"
 
+#include <string>
 #include <iostream>
 
 using std::cout;
 using std::endl;
+using std::cin;
 
-void b(void* arg)
+void a(void* arg)
 {
-	Queue<int32>* queue = (Queue<int32>*)(arg);
-	for (Queue<int32>::QueueElement* i = queue->head(); i != nullptr; i = i->next)
-	{
-		cout << i->data << endl;
-		getchar();
-	}
-}
-
-void a(Queue<int32> & queue)
-{
-	if (queue.empty())
-	cout << "Queue : front = nullptr and size = 0" << endl;
-	else
-	cout << "Queue : front = " << queue.front() << " and size = " << queue.size() << endl;
+	Window* window = (Window*)(arg);
+	window->Initialize(640, 480, "The Essence Of A Good Day");
+	window->Update();
 }
 
 int32 main(int32 argc, char *argv[], char *envp[])
 {
+	Window* window = new OpenGlWindow();
 
-	
-		Queue<int32> queue;
-		queue.push(5);
-		queue.push(3);
-		queue.push(7);
-		queue.push(3);
-		queue.push(11);
 
-		Thread t(b, NULL, &queue);
+	Thread t(a, NULL, window);
 
-		cout << "wooldsd";
+	while (true)
+	{
+		std::string input;
+		cin >> input;
+		if (input.at(0) == 'q')
+			break;
+	}
 
-		t.join();
+	t.join();
 
-		cout << "dfdf";
-	
-	getchar();
-	getchar();
 
 	return 0;
 }

@@ -9,6 +9,7 @@ class Thread
 public:
 
 	Thread(Function foo, uint32 startAddress, void* argList);
+	~Thread();
 
 	void join();
 

@@ -13,11 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
-    <Filter Include="Header Files\Core">
+    <Filter Include="Engine">
+      <UniqueIdentifier>{efda1941-fb38-422b-955d-9628c9b4f957}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core">
       <UniqueIdentifier>{dd8b7739-5f1f-45b0-b02a-cd62f8e7f9c8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\x86">
-      <UniqueIdentifier>{bbf125c3-6fed-428e-b823-fa3d3bdc5353}</UniqueIdentifier>
+    <Filter Include="Engine\Core\Threading">
+      <UniqueIdentifier>{8a9eab87-ea09-4da9-ac71-ae124fd7e88c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Gfx">
+      <UniqueIdentifier>{ee38ef02-d509-4e20-b693-b1dde3d43e7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Gfx\OpenGl">
+      <UniqueIdentifier>{849b13fa-65f2-4a59-bb1a-8da1e88a89c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core\Framework">
+      <UniqueIdentifier>{1d9a26c5-9d4e-40e6-b2d6-246cc6920083}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,24 +40,42 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Src\Thread.cpp">
-      <Filter>Header Files\Core</Filter>
+      <Filter>Engine\Core\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\ThreadPool.cpp">
+      <Filter>Engine\Core\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\Node.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp">
+      <Filter>Engine\Gfx\OpenGl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Src\corestd.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Src\Vector.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\x86\Util.h">
-      <Filter>Header Files\x86</Filter>
+      <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Src\Queue.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Src\Thread.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>Engine\Core\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\ThreadPool.h">
+      <Filter>Engine\Core\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Node.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h">
+      <Filter>Engine\Gfx\OpenGl</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Window.h">
+      <Filter>Engine\Core\Framework</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
