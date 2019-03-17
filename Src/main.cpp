@@ -23,8 +23,16 @@ extern "C"
 }
 void a(void* arg)
 {
+	int32 result = 0;
 	Window* window = (Window*)(arg);
-	window->Initialize(640, 480, "The Essence Of A Good Day");
+	
+	result = window->Initialize(640, 480, "The Essence Of A Good Day");
+	if (result)
+	{
+		cout << result << endl;
+		safe_delete(window);
+		return;
+	}
 	window->Update();
 	
 	safe_delete(window);

@@ -65,20 +65,20 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\SDKS;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDKS\glfw-3.2.1.bin.WIN64\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\SDKS\glew-2.1.0\lib\Release\x64;C:\SDKS\glfw-3.2.1.bin.WIN64\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\SDKS;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDKS\glfw-3.2.1.bin.WIN64\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\SDKS\glew-2.1.0\lib\Release\x64;C:\SDKS\glfw-3.2.1.bin.WIN64\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\SDKS;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDKS\glfw-3.2.1.bin.WIN64\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\SDKS\glew-2.1.0\lib\Release\x64;C:\SDKS\glfw-3.2.1.bin.WIN64\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\SDKS;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDKS\glfw-3.2.1.bin.WIN64\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\SDKS\glew-2.1.0\lib\Release\x64;C:\SDKS\glfw-3.2.1.bin.WIN64\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -124,6 +124,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <CopyFileToFolders Include="C:\SDKS\LUA\lua53.dll">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="C:\SDKS\glew-2.1.0\bin\Release\x64\glew32.dll">
       <FileType>Document</FileType>
     </CopyFileToFolders>
     <None Include="CommandPrompt.qpp" />
