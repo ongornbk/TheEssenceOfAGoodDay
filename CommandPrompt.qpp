@@ -1,0 +1,20 @@
+ImportPackage("conio")
+SetConsoleTitle("TheEssenceOfAGoodDay CommandPrompt")
+
+local running = true
+
+ImportPackage("system")
+
+while(running == true)
+do
+
+local input = GetInput()
+
+if input == "exit"
+then
+running = false
+else
+System(input)
+end
+
+end
