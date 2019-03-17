@@ -1,47 +1,39 @@
 #include "..\Core\Src\corestd.h"
 #include "..\Core\Src\Queue.h"
 #include "..\Core\Src\ThreadPool.h"
+#include "..\Gfx\OpenGl\OpenGlWindow.h"
 
 #include <string>
 #include <iostream>
 
 using std::cout;
 using std::endl;
-
-struct String
-{
-	std::string str;
-};
+using std::cin;
 
 void a(void* arg)
 {
-	cout << "wololo";
-}
-
-void b(void* arg)
-{
-	cout << "sdsdsdsds";
-}
-
-void c(void* arg)
-{
-	String* str = (String*)arg;
-	cout << str->str;
+	Window* window = (Window*)(arg);
+	window->Initialize(640, 480, "The Essence Of A Good Day");
+	window->Update();
 }
 
 int32 main(int32 argc, char *argv[], char *envp[])
 {
-	String str;
-	str.str = "wwewewewewewewewewewe323223232232";
-	
-	ThreadPool pool;
-
-	pool.push(&a);
-	pool.push(&b);
-	pool.push(&c,&str);
+	Window* window = new OpenGlWindow();
 
 
-	getchar();
+	Thread t(a, NULL, window);
+
+	while (true)
+	{
+		std::string input;
+		cin >> input;
+		if (input.at(0) == 'q')
+			break;
+	}
+
+	t.join();
+
 
 	return 0;
 }

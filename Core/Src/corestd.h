@@ -9,10 +9,10 @@
 using std::atomic;
 using std::mutex;
 
-typedef char               int8;
-typedef short              int16;
-typedef long               int32;
-typedef long long          int64;
+typedef signed char        int8;
+typedef signed short       int16;
+typedef signed long        int32;
+typedef signed long long   int64;
 
 typedef unsigned char      uint8;
 typedef unsigned short     uint16;

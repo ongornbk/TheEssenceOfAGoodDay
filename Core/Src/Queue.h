@@ -82,12 +82,12 @@ public:
 			__size--;
 	}
 
-	uint32 size()
+	uint32 size() const
 	{
 		return __size;
 	}
 
-	bool empty()
+	bool empty() const
 	{
 		if (__size)
 			return false;
