@@ -123,9 +123,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <CopyFileToFolders Include="C:\SDKS\LUA\lua53.dll">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
     <None Include="CommandPrompt.qpp" />
+    <CopyFileToFolders Include="Core\Lua\Luas\test.lua">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Lua\Lua.h" />
     <ClInclude Include="Core\Src\corestd.h" />
     <ClInclude Include="Core\Src\Node.h" />
     <ClInclude Include="Core\Src\Queue.h" />
@@ -136,6 +151,7 @@
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Lua\Lua.cpp" />
     <ClCompile Include="Core\Src\Node.cpp" />
     <ClCompile Include="Core\Src\Thread.cpp" />
     <ClCompile Include="Core\Src\ThreadPool.cpp" />

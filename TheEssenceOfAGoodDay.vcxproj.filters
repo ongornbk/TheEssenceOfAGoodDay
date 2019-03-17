@@ -31,9 +31,21 @@
     <Filter Include="Engine\Core\Framework">
       <UniqueIdentifier>{1d9a26c5-9d4e-40e6-b2d6-246cc6920083}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Core\Lua">
+      <UniqueIdentifier>{7686c936-7c1b-4f74-b245-3c85171f3fae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core\Lua\Luas">
+      <UniqueIdentifier>{2dca4246-d075-4762-ad36-020f17657a44}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="CommandPrompt.qpp" />
+    <None Include="Core\Lua\Luas\test.lua">
+      <Filter>Engine\Core\Lua\Luas</Filter>
+    </None>
+    <None Include="C:\SDKS\LUA\lua53.dll">
+      <Filter>Engine\Core\Lua</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\main.cpp">
@@ -50,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp">
       <Filter>Engine\Gfx\OpenGl</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Lua\Lua.cpp">
+      <Filter>Engine\Core\Lua</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="Core\Src\Window.h">
       <Filter>Engine\Core\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Lua\Lua.h">
+      <Filter>Engine\Core\Lua</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
