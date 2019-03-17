@@ -40,15 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CommandPrompt.qpp" />
-    <None Include="Core\Lua\Luas\test.lua">
-      <Filter>Engine\Core\Lua\Luas</Filter>
-    </None>
-    <None Include="C:\SDKS\LUA\lua53.dll">
-      <Filter>Engine\Core\Lua</Filter>
-    </None>
-    <None Include="C:\SDKS\glew-2.1.0\bin\Release\x64\glew32.dll">
-      <Filter>Engine\Gfx\OpenGl</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\main.cpp">
@@ -68,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="Core\Lua\Lua.cpp">
       <Filter>Engine\Core\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\String.cpp">
+      <Filter>Engine\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,5 +92,13 @@
     <ClInclude Include="Core\Lua\Lua.h">
       <Filter>Engine\Core\Lua</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Src\String.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="C:\SDKS\LUA\lua53.dll" />
+    <CopyFileToFolders Include="C:\SDKS\glew-2.1.0\bin\Release\x64\glew32.dll" />
+    <CopyFileToFolders Include="Core\Lua\Luas\test.lua" />
   </ItemGroup>
 </Project>
