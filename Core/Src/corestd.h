@@ -3,11 +3,13 @@
 #include <cassert>
 #include <atomic>
 #include <mutex>
+#include <string>
 
 #include <Windows.h>
 
 using std::atomic;
 using std::mutex;
+using std::string;
 
 typedef signed char        int8;
 typedef signed short       int16;
