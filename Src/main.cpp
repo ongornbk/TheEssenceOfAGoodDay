@@ -3,6 +3,7 @@
 #include "..\Core\Src\ThreadPool.h"
 #include "..\Gfx\OpenGl\OpenGlWindow.h"
 #include "..\Core\Lua\Lua.h"
+#include "..\Core\Src\String.h"
 
 #include <string>
 #include <iostream>
@@ -16,7 +17,17 @@ extern "C"
 
 	static int32_t _cdecl testlua(lua_State* state) noexcept
 	{
-		cout << lua_tostring(state, 1) << endl;
+		Vector<String*> vec;
+		SplitString(vec,String(lua_tostring(state, 1)), '.');
+		for (auto str : vec)
+		{
+			if (str)
+			{
+				cout << str->get_string() << endl;
+				delete str;
+				str = nullptr;
+			}
+		}
 		return 0;
 	}
 
