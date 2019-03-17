@@ -22,6 +22,16 @@ typedef unsigned long long uint64;
 typedef void*              Handle;
 typedef void(__cdecl*      Function)(void*);
 
+template <class T>
+inline void safe_delete(T ptr)
+{
+	assert(ptr);
+	if (ptr)
+	{
+		delete ptr;
+		ptr = nullptr;
+	}
+}
 
 class UInteger32
 {

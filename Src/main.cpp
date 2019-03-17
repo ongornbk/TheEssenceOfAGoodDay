@@ -15,14 +15,16 @@ void a(void* arg)
 	Window* window = (Window*)(arg);
 	window->Initialize(640, 480, "The Essence Of A Good Day");
 	window->Update();
+	
+	safe_delete(window);
+
 }
 
 int32 main(int32 argc, char *argv[], char *envp[])
 {
-	Window* window = new OpenGlWindow();
 
 
-	Thread t(a, NULL, window);
+	Thread t(a, NULL, new OpenGlWindow());
 
 	while (true)
 	{
@@ -33,7 +35,6 @@ int32 main(int32 argc, char *argv[], char *envp[])
 	}
 
 	t.join();
-
 
 	return 0;
 }
