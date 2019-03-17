@@ -109,11 +109,13 @@
     <ClInclude Include="Core\Src\corestd.h" />
     <ClInclude Include="Core\Src\Queue.h" />
     <ClInclude Include="Core\Src\Thread.h" />
+    <ClInclude Include="Core\Src\ThreadPool.h" />
     <ClInclude Include="Core\Src\Vector.h" />
     <ClInclude Include="Core\x86\Util.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Src\Thread.cpp" />
+    <ClCompile Include="Core\Src\ThreadPool.cpp" />
     <ClCompile Include="Src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

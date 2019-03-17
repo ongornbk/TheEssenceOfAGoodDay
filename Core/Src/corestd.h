@@ -1,6 +1,13 @@
 #pragma once
 
 #include <cassert>
+#include <atomic>
+#include <mutex>
+
+#include <Windows.h>
+
+using std::atomic;
+using std::mutex;
 
 typedef char               int8;
 typedef short              int16;
@@ -14,7 +21,6 @@ typedef unsigned long long uint64;
 
 typedef void*              Handle;
 typedef void(__cdecl*      Function)(void*);
-
 
 
 class UInteger32

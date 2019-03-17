@@ -30,6 +30,9 @@
     <ClCompile Include="Core\Src\Thread.cpp">
       <Filter>Header Files\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Src\ThreadPool.cpp">
+      <Filter>Header Files\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Src\corestd.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Src\Thread.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\ThreadPool.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
   </ItemGroup>

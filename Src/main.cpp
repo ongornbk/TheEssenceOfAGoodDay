@@ -1,50 +1,46 @@
 #include "..\Core\Src\corestd.h"
 #include "..\Core\Src\Queue.h"
-#include "..\Core\Src\Thread.h"
+#include "..\Core\Src\ThreadPool.h"
 
+#include <string>
 #include <iostream>
 
 using std::cout;
 using std::endl;
 
-void b(void* arg)
+struct String
 {
-	Queue<int32>* queue = (Queue<int32>*)(arg);
-	for (Queue<int32>::QueueElement* i = queue->head(); i != nullptr; i = i->next)
-	{
-		cout << i->data << endl;
-		getchar();
-	}
+	std::string str;
+};
+
+void a(void* arg)
+{
+	cout << "wololo";
 }
 
-void a(Queue<int32> & queue)
+void b(void* arg)
 {
-	if (queue.empty())
-	cout << "Queue : front = nullptr and size = 0" << endl;
-	else
-	cout << "Queue : front = " << queue.front() << " and size = " << queue.size() << endl;
+	cout << "sdsdsdsds";
+}
+
+void c(void* arg)
+{
+	String* str = (String*)arg;
+	cout << str->str;
 }
 
 int32 main(int32 argc, char *argv[], char *envp[])
 {
-
+	String str;
+	str.str = "wwewewewewewewewewewe323223232232";
 	
-		Queue<int32> queue;
-		queue.push(5);
-		queue.push(3);
-		queue.push(7);
-		queue.push(3);
-		queue.push(11);
+	ThreadPool pool;
 
-		Thread t(b, NULL, &queue);
+	pool.push(&a);
+	pool.push(&b);
+	pool.push(&c,&str);
 
-		cout << "wooldsd";
 
-		t.join();
-
-		cout << "dfdf";
-	
-	getchar();
 	getchar();
 
 	return 0;
