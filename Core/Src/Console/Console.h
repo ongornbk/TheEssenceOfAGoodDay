@@ -32,10 +32,14 @@ class Console
 	void GoBack();
 	void UpdatePosition();
 
+
+
 public:
 
 
 	~Console();
+
+	
 
 	friend class ConsoleHandle;
 };
@@ -45,12 +49,21 @@ class ConsoleHandle
 
 	bool   closed = false;
 	uint32 id{};
-
 public:
+
+	enum HandleStance
+	{
+		BLOCKED,
+		UNBLOCKED
+	};
 
 	ConsoleHandle();
 	~ConsoleHandle();
 
+	void operator < (String str);
+	void operator < (const char* str);
+	void operator < (char str);
+	void operator < (int32 integer);
 	void operator << (String str);
 	void operator << (const char* str);
 	void operator << (char str);
@@ -59,4 +72,14 @@ public:
 
 	void close();
 	void pause();
+
+	void SetTitle(String str);
+
+private:
+
+	HandleStance stance = UNBLOCKED;
+
+	void SoftLock(Console::ConsoleStream stream);
+
+	
 };

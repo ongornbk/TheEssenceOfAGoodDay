@@ -47,9 +47,21 @@ bool String::to_bool()
 	return true;
 }
 
+String& String::operator=(const String& str)
+{
+	this->text = str.text;
+	return *this;
+}
+
 String& String::operator+=(const char ch)
 {
 	text.push_back(ch);
+	return *this;
+}
+
+String& String::operator+=(const char* str)
+{
+	text += str;
 	return *this;
 }
 

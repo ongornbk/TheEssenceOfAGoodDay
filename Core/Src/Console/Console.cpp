@@ -1,9 +1,12 @@
 #include "Console.h"
 #include <conio.h>
 
+#define CONSOLE_DEBUG
+
 namespace
 {
 	static Console* instance = nullptr;
+	static String title(CONSOLE_NAME);
 	atomic<uint32> uses(0u);
 }
 
@@ -74,7 +77,7 @@ ConsoleHandle::~ConsoleHandle()
 Console::Console()
 {
 AllocConsole();
-SetConsoleTitle(CONSOLE_NAME);
+SetConsoleTitle(title.c_str());
 freopen("CONOUT$", "w", stdout);
 HandleOut  = GetStdHandle(STD_OUTPUT_HANDLE);
 HandleIn   = GetStdHandle(STD_INPUT_HANDLE);
@@ -86,6 +89,8 @@ fclose(stdout);
 FreeConsole();
 instance = nullptr;
 }
+
+
 
 void Console::lock(ConsoleStream cs)
 {
@@ -157,37 +162,67 @@ void Console::GoBack()
 
 void ConsoleHandle::operator << (String str)
 {
-	instance->lock(Console::ConsoleStream::COUT);
+	SoftLock(Console::ConsoleStream::COUT);
 	printf_s("%s",str.c_str());
 	instance->unlock(Console::ConsoleStream::COUT);
+	stance = HandleStance::UNBLOCKED;
 }
 
 void ConsoleHandle::operator << (const char* str)
 {
-	instance->lock(Console::ConsoleStream::COUT);
+	SoftLock(Console::ConsoleStream::COUT);
 	printf_s("%s", str);
 	instance->unlock(Console::ConsoleStream::COUT);
+	stance = HandleStance::UNBLOCKED;
 }
 
 void ConsoleHandle::operator<< (char ch)
 {
-	instance->lock(Console::ConsoleStream::COUT);
+	SoftLock(Console::ConsoleStream::COUT);
 	printf_s("%c",ch);
 	instance->unlock(Console::ConsoleStream::COUT);
+	stance = HandleStance::UNBLOCKED;
 }
 
 void ConsoleHandle::operator<< (int32 integer)
 {
-	instance->lock(Console::ConsoleStream::COUT);
+	SoftLock(Console::ConsoleStream::COUT);
 	printf_s("%d", integer);
 	instance->unlock(Console::ConsoleStream::COUT);
+	stance = HandleStance::UNBLOCKED;
 }
+
+void ConsoleHandle::operator < (String str)
+{
+	SoftLock(Console::ConsoleStream::COUT);
+	printf_s("%s", str.c_str());
+}
+
+void ConsoleHandle::operator < (const char* str)
+{
+	SoftLock(Console::ConsoleStream::COUT);
+	printf_s("%s", str);
+}
+
+void ConsoleHandle::operator< (char ch)
+{
+	SoftLock(Console::ConsoleStream::COUT);
+	printf_s("%c", ch);
+}
+
+void ConsoleHandle::operator< (int32 integer)
+{
+	SoftLock(Console::ConsoleStream::COUT);
+	printf_s("%d", integer);
+}
+
 
 void ConsoleHandle::operator>>(String& str)
 {
 	int32 key{};
 	char escape = true;
 	instance->lock(Console::ConsoleStream::CIN);
+	instance->lock(Console::ConsoleStream::COUT);
 	while (escape)
 	{
 		key = getch();
@@ -208,14 +243,15 @@ void ConsoleHandle::operator>>(String& str)
 
 		default:
 		{
-			instance->lock(Console::ConsoleStream::COUT);
+
 			printf_s("%c",key);
-			instance->unlock(Console::ConsoleStream::COUT);
+
 			str += (char)key;
 		}
 		}
 	}
 	instance->unlock(Console::ConsoleStream::CIN);
+	instance->unlock(Console::ConsoleStream::COUT);
 
 }
 
@@ -251,4 +287,21 @@ void ConsoleHandle::pause()
 	instance->lock(Console::ConsoleStream::CIN);
 	(void)getch();
 	instance->unlock(Console::ConsoleStream::CIN);
+}
+
+void ConsoleHandle::SoftLock(Console::ConsoleStream stream)
+{
+	if (stance == HandleStance::UNBLOCKED)
+	{
+		stance = HandleStance::BLOCKED;
+		instance->lock(stream);
+	}
+}
+
+void ConsoleHandle::SetTitle(String str)
+{
+	instance->lock(Console::ConsoleStream::CON);
+	title = str;
+	SetConsoleTitle(str.c_str());
+	instance->unlock(Console::ConsoleStream::CON);
 }

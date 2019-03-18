@@ -8,31 +8,6 @@
 
 #include <string>
 
-extern "C"
-{
-
-	static int32_t _cdecl testlua(lua_State* state) noexcept
-	{
-		Vector<String*> vec;
-		SplitString(vec,String(lua_tostring(state, 1)), '.');
-
-
-
-		for (auto str : vec)
-		{
-			if (str)
-			{
-			//	ConsoleHandle con;
-			//	con << (*str);
-			//	con << endl;
-				delete str;
-				str = nullptr;
-			}
-		}
-		return 0;
-	}
-
-}
 void a(void* arg)
 {
 	int32 result = 0;
@@ -43,8 +18,8 @@ void a(void* arg)
 	{
 		{
 		ConsoleHandle con;
-		con << "OpenGl window creation error! code : ";
-		con << result;
+		con < "OpenGl window creation error! code : ";
+		con < result;
 		con << endl;
 		safe_delete(window);
 		}
@@ -53,16 +28,29 @@ void a(void* arg)
 	else
 	{
 		ConsoleHandle con;
-		con << "OpenGl window created!";
+		con < "OpenGl window created!";
 		con << endl;
 	}
 	window->Update();
 	
 	safe_delete(window);
 	ConsoleHandle con;
-	con << "OpenGl window destroyed!";
+	con < "OpenGl window destroyed!";
 	con << endl;
 	con.pause();
+}
+
+void l(void* arg)
+{
+	LuaManager* lua = (LuaManager*)arg;
+
+	char buffer[MAX_PATH];
+	::GetModuleFileName(NULL, buffer, MAX_PATH);
+	lua->Initialize(buffer);
+
+
+	lua->RegisterConsoleFunctions();
+	lua->Execute("test.lua");
 }
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -74,31 +62,21 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
-	//LuaManager lua;
-	//lua.RegisterFunction("Wololo", testlua);
-
-
-//	lua.Initialize(argv[0], "test.lua");
-
-	Thread t(a, NULL, new OpenGlWindow());
+	LuaManager* lua = new LuaManager();
 
 	ConsoleHandle con;
 
-	String input;
-while(true)
-{
-		input.clear();
-		con >> input;
-		con << endl;
-		if (input == "exit")
-			break;
-	} 
+	Thread t(a, NULL, new OpenGlWindow());
+	Thread luaT(l, NULL,lua);
 
-con.close();
-
+	luaT.join();
 	t.join();
 
+	safe_delete(lua);
 
+	con < "Press Any Key To Exit...";
+	con << endl;
+	con.pause();
 
 	return 0;
 }

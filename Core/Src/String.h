@@ -21,7 +21,10 @@ public:
 
 	bool to_bool();
 
+	String& operator = (const String& str);
+
 	String& operator += (const char ch);
+	String& operator += (const char* str);
 
 	bool operator ==(String & B);
 	bool operator ==(const char* B);
