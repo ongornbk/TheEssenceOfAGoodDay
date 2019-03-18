@@ -1,7 +1,7 @@
 #pragma once
 #include "Thread.h"
-#include "Queue.h"
-#include "Vector.h"
+#include "..\Queue.h"
+#include "..\Vector.h"
 
 
 struct Task
@@ -35,5 +35,8 @@ public:
 	void wait();
 
 	friend void ThreadLoop(void* pt);
+	friend class ThreadPoolHandle;
+
+	static ThreadPool* m_instance;
 };
 

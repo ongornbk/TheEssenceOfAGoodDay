@@ -3,12 +3,15 @@
 #include <cassert>
 #include <atomic>
 #include <mutex>
+#include <shared_mutex>
 #include <string>
 
 #include <Windows.h>
 
 using std::atomic;
 using std::mutex;
+using std::lock_guard;
+using std::shared_mutex;
 using std::string;
 
 typedef signed char        int8;
@@ -43,3 +46,5 @@ public:
 		return 0xFFFFFFFF;
 	}
 };
+
+#define endl '\n'

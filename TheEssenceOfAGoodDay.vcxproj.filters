@@ -37,6 +37,9 @@
     <Filter Include="Engine\Core\Lua\Luas">
       <UniqueIdentifier>{2dca4246-d075-4762-ad36-020f17657a44}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Core\Console">
+      <UniqueIdentifier>{ccaa31a5-274b-4f3c-a7bc-c839c289d108}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="CommandPrompt.qpp" />
@@ -44,12 +47,6 @@
   <ItemGroup>
     <ClCompile Include="Src\main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Src\Thread.cpp">
-      <Filter>Engine\Core\Threading</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Src\ThreadPool.cpp">
-      <Filter>Engine\Core\Threading</Filter>
     </ClCompile>
     <ClCompile Include="Core\Src\Node.cpp">
       <Filter>Engine\Core</Filter>
@@ -63,6 +60,18 @@
     <ClCompile Include="Core\Src\String.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Src\Console\Console.cpp">
+      <Filter>Engine\Core\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\Threading\ThreadPoolHandle.cpp">
+      <Filter>Engine\Core\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\Threading\ThreadPool.cpp">
+      <Filter>Engine\Core\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\Threading\Thread.cpp">
+      <Filter>Engine\Core\Threading</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Src\corestd.h">
@@ -73,12 +82,6 @@
     </ClInclude>
     <ClInclude Include="Core\Src\Queue.h">
       <Filter>Engine\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Src\Thread.h">
-      <Filter>Engine\Core\Threading</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Src\ThreadPool.h">
-      <Filter>Engine\Core\Threading</Filter>
     </ClInclude>
     <ClInclude Include="Core\Src\Node.h">
       <Filter>Engine\Core</Filter>
@@ -94,6 +97,18 @@
     </ClInclude>
     <ClInclude Include="Core\Src\String.h">
       <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Console\Console.h">
+      <Filter>Engine\Core\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Threading\ThreadPoolHandle.h">
+      <Filter>Engine\Core\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Threading\ThreadPool.h">
+      <Filter>Engine\Core\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Threading\Thread.h">
+      <Filter>Engine\Core\Threading</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

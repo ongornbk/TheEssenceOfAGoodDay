@@ -1,5 +1,7 @@
 #include "ThreadPool.h"
 
+ThreadPool* ThreadPool::m_instance = nullptr;
+
 static void _cdecl ThreadLoop(void* pt)
 {
 	ThreadPool* pool = (ThreadPool*)pt;
@@ -22,6 +24,7 @@ static void _cdecl ThreadLoop(void* pt)
 
 ThreadPool::ThreadPool(size_t num_threads) : _running(true), _taskNum(0)
 {
+	m_instance = this;
 	auto thread_loop = [](void* pt) {
 
 		
@@ -35,6 +38,7 @@ ThreadPool::ThreadPool(size_t num_threads) : _running(true), _taskNum(0)
 
 	ThreadPool::~ThreadPool()
 {
+		m_instance = nullptr;
 		_running = false;
 		for (auto&& t : _threads) {
 			if (t)
