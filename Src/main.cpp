@@ -41,11 +41,13 @@ void a(void* arg)
 	result = window->Initialize(640, 480, "The Essence Of A Good Day");
 	if (result)
 	{
+		{
 		ConsoleHandle con;
 		con << "OpenGl window creation error! code : ";
 		con << result;
 		con << endl;
 		safe_delete(window);
+		}
 		return;
 	}
 	else
@@ -57,11 +59,21 @@ void a(void* arg)
 	window->Update();
 	
 	safe_delete(window);
-
+	ConsoleHandle con;
+	con << "OpenGl window destroyed!";
+	con << endl;
+	con.pause();
 }
 
-int32 main(int32 argc, char *argv[], char *envp[])
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+	_In_opt_ HINSTANCE hPrevInstance,
+	_In_ LPWSTR    lpCmdLine,
+	_In_ int       nCmdShow)
 {
+
+	UNREFERENCED_PARAMETER(hPrevInstance);
+	UNREFERENCED_PARAMETER(lpCmdLine);
+
 	//LuaManager lua;
 	//lua.RegisterFunction("Wololo", testlua);
 
@@ -82,12 +94,11 @@ while(true)
 			break;
 	} 
 
+con.close();
+
 	t.join();
 
-	con << endl;
-	con << input;
 
-	getchar();
 
 	return 0;
 }

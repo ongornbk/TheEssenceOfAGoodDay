@@ -48,3 +48,4 @@ public:
 };
 
 #define endl '\n'
+#define CONSOLE_NAME "The Essence Of A Good Day"
