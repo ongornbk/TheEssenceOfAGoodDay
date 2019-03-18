@@ -13,12 +13,17 @@ public:
 	LuaManager();
 	~LuaManager();
 
-	bool    Initialize(string path,string file) noexcept;
-	string  GetPath() noexcept;
+	bool    Initialize(string path);
+	string  GetPath();
 
-	void RegisterFunction(string name, lua_CFunction foo) noexcept;
+	void RegisterFunction(string name, lua_CFunction foo);
 
-	static LuaManager* GetInstance() noexcept;
+	void RegisterConsoleFunctions();
+
+	static LuaManager* GetInstance();
+
+	bool Execute(string file);
+
 
 private:
 

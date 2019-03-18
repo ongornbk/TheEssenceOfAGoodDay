@@ -1,2 +1,4 @@
-print("Hello World")
-Wololo("hwvlx.okuxhw.u.niequxjuwfi")
+Print("Set new console title :")
+local input = GetInput()
+Endline()
+SetConsoleTitle(tostring(input))

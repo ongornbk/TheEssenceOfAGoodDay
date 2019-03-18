@@ -114,6 +114,8 @@
   <ItemGroup>
     <CopyFileToFolders Include="C:\SDKS\LUA\lua53.dll" />
     <CopyFileToFolders Include="C:\SDKS\glew-2.1.0\bin\Release\x64\glew32.dll" />
-    <CopyFileToFolders Include="Core\Lua\Luas\test.lua" />
+    <CopyFileToFolders Include="Core\Lua\Luas\test.lua">
+      <Filter>Engine\Core\Lua\Luas</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
