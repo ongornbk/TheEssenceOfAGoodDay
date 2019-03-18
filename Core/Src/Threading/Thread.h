@@ -1,5 +1,5 @@
 #pragma once
-#include "corestd.h"
+#include "..\corestd.h"
 
 
 class Thread
