@@ -43,6 +43,9 @@ public:
 class ConsoleHandle
 {
 
+	bool   closed = false;
+	uint32 id{};
+
 public:
 
 	ConsoleHandle();
@@ -53,4 +56,7 @@ public:
 	void operator << (char str);
 	void operator << (int32 integer);
 	void operator >> (String& str);
+
+	void close();
+	void pause();
 };
