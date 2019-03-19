@@ -5,6 +5,8 @@
 #include <mutex>
 #include <shared_mutex>
 #include <string>
+#include <fstream>
+
 
 #include <Windows.h>
 
@@ -13,6 +15,8 @@ using std::mutex;
 using std::lock_guard;
 using std::shared_mutex;
 using std::string;
+using std::fstream;
+using std::ifstream;
 
 typedef signed char        int8;
 typedef signed short       int16;

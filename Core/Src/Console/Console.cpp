@@ -176,6 +176,11 @@ void ConsoleHandle::operator << (const char* str)
 	print("%s", str, true);
 }
 
+void ConsoleHandle::operator << (const unsigned char* str)
+{
+	print("%s", (char*)str, true);
+}
+
 void ConsoleHandle::operator<< (char ch)
 {
 	print("%s", String(ch).c_str(), true);
@@ -194,6 +199,11 @@ void ConsoleHandle::operator < (String str)
 void ConsoleHandle::operator < (const char* str)
 {
 	print("%s", str, false);
+}
+
+void ConsoleHandle::operator < (const unsigned char* str)
+{
+	print("%s", (char*)str, false);
 }
 
 void ConsoleHandle::operator< (char ch)

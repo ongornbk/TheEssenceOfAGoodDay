@@ -3,6 +3,7 @@
 #include "..\Core\Src\Threading\ThreadPool.h"
 #include "..\Gfx\OpenGl\OpenGlWindow.h"
 #include "..\Core\Src\WinApiWindow.h"
+#include "..\Gfx\DirectX11\DirectX11Window.h"
 #include "..\Core\Lua\Lua.h"
 #include "..\Core\Src\String.h"
 #include "..\Core\Src\Console\Console.h"
@@ -10,7 +11,7 @@
 
 #include <string>
 
-void a(void* arg)
+void dxThreadf(void* arg)
 {
 	int32 result = 0;
 	Window* window = (Window*)(arg);
@@ -19,10 +20,14 @@ void a(void* arg)
 	if (result)
 	{
 		safe_delete(window);
+		ConsoleHandle con;
+		con.pause();
 		return;
 	}
+
+	DirectX11 directX;
+
 	window->Update();
-	
 	safe_delete(window);
 }
 
@@ -48,28 +53,28 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
-	LuaManager* lua = new LuaManager();
+	//LuaManager* lua = new LuaManager();
 	
+	
+	
+
+	//Thread winapiThread(a, NULL, new WinApiWindow());
+	Thread dxThread(dxThreadf, NULL, new DirectX11Window());
+
+	
+	
+	//Thread luaT(l, NULL,lua);
+	
+	//luaT.join();
+	dxThread.join();
+	//winapiThread.join();
+	
+	//safe_delete(lua);
+
 	ConsoleHandle con;
-	
-	Thread winapiThread(a, NULL, new WinApiWindow());
-	Thread openGlThread(a, NULL, new OpenGlWindow());
-	
-	Thread luaT(l, NULL,lua);
-	
-	luaT.join();
-	openGlThread.join();
-	winapiThread.join();
-	
-	safe_delete(lua);
-	
 	con < "Press Any Key To Exit...";
 	con << endl;
 	con.pause();
-
-
-
-	
 
 	return 0;
 }

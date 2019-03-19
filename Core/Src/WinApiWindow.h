@@ -5,7 +5,10 @@ class WinApiWindow : public Window
 {
 
 public:
-	int32 Initialize(int32 width, int32 height,String title,bool fullscreen = false) override;
-	int32 Update() override;
+	virtual int32 Initialize(int32 width, int32 height,String title,bool fullscreen = false) override;
+	virtual int32 Update() override;
 
+protected:
+
+	void(__stdcall*      m_callback)(void);
 };

@@ -15,8 +15,8 @@ public:
 	explicit String(const int32);
 	explicit String(const uint32);
 
-	string get_string();
-	const char* c_str();
+	string get_string() const noexcept;
+	const char* c_str() const noexcept;
 
 	float to_float();
 
