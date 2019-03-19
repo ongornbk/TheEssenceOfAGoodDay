@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Lua\Lua.h" />
+    <ClInclude Include="Core\Lua\LuaPointer.h" />
     <ClInclude Include="Core\Src\Console\Console.h" />
     <ClInclude Include="Core\Src\corestd.h" />
     <ClInclude Include="Core\Src\IElement.h" />

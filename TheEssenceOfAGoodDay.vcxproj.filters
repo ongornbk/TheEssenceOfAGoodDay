@@ -34,11 +34,11 @@
     <Filter Include="Engine\Core\Lua">
       <UniqueIdentifier>{7686c936-7c1b-4f74-b245-3c85171f3fae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Core\Lua\Luas">
-      <UniqueIdentifier>{2dca4246-d075-4762-ad36-020f17657a44}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Core\Console">
       <UniqueIdentifier>{ccaa31a5-274b-4f3c-a7bc-c839c289d108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core\Lua\Scripts">
+      <UniqueIdentifier>{2dca4246-d075-4762-ad36-020f17657a44}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -128,12 +128,15 @@
     <ClInclude Include="Core\Src\WinApiWindow.h">
       <Filter>Engine\Core\Framework</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Lua\LuaPointer.h">
+      <Filter>Engine\Core\Lua</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="C:\SDKS\LUA\lua53.dll" />
     <CopyFileToFolders Include="C:\SDKS\glew-2.1.0\bin\Release\x64\glew32.dll" />
     <CopyFileToFolders Include="Core\Lua\Luas\test.lua">
-      <Filter>Engine\Core\Lua\Luas</Filter>
+      <Filter>Engine\Core\Lua\Scripts</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>
