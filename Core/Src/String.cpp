@@ -35,12 +35,12 @@ String::~String()
 	text.clear();
 }
 
-string String::get_string()
+string String::get_string() const noexcept
 {
 	return text;
 }
 
-const char* String::c_str()
+const char* String::c_str() const noexcept
 {
 	return text.c_str();
 }

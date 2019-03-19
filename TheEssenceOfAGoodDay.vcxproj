@@ -161,7 +161,11 @@
     <ClInclude Include="Core\Src\Vector.h" />
     <ClInclude Include="Core\Src\WinApiWindow.h" />
     <ClInclude Include="Core\Src\Window.h" />
+    <ClInclude Include="Gfx\DirectX11\DirectX11.h" />
+    <ClInclude Include="Gfx\DirectX11\DirectX11Window.h" />
+    <ClInclude Include="Gfx\OpenGl\OpenGL.h" />
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h" />
+    <ClInclude Include="Gfx\OpenGl\Shader\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Lua\Lua.cpp" />
@@ -172,7 +176,11 @@
     <ClCompile Include="Core\Src\Threading\ThreadPool.cpp" />
     <ClCompile Include="Core\Src\Threading\ThreadPoolHandle.cpp" />
     <ClCompile Include="Core\Src\WinApiWindow.cpp" />
+    <ClCompile Include="Gfx\DirectX11\DirectX11.cpp" />
+    <ClCompile Include="Gfx\DirectX11\DirectX11Window.cpp" />
+    <ClCompile Include="Gfx\OpenGl\OpenGL.cpp" />
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp" />
+    <ClCompile Include="Gfx\OpenGl\Shader\Shader.cpp" />
     <ClCompile Include="Src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

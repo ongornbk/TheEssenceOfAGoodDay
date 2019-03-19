@@ -1,11 +1,6 @@
 #pragma once
 #include "..\..\Core\Src\Window.h"
-#include <glew-2.1.0/include/GL/glew.h>
-#include <glfw-3.2.1.bin.WIN64/include/GLFW/glfw3.h>
-
-#pragma comment(lib,"glfw3.lib")
-#pragma comment(lib,"glfw3dll.lib")
-#pragma comment(lib,"glew32.lib")
+#include "OpenGL.h"
 
 class OpenGlWindow : public Window
 {
