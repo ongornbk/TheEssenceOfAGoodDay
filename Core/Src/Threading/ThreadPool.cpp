@@ -9,7 +9,7 @@ static void _cdecl ThreadLoop(void* pt)
 	while (pool->_running) {
 		pool->_mutex.lock();
 		if (!pool->_taskQueue.empty()) {
-			Task task = pool->_taskQueue.front();
+			Task task = pool->_taskQueue.get();
 			pool->_taskQueue.pop();
 			pool->_mutex.unlock();
 			task.execute();

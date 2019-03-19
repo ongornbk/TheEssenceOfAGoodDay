@@ -5,6 +5,7 @@
 #include "..\Core\Lua\Lua.h"
 #include "..\Core\Src\String.h"
 #include "..\Core\Src\Console\Console.h"
+#include "..\Core\Src\Stack.h"
 
 #include <string>
 
@@ -63,20 +64,24 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
 	LuaManager* lua = new LuaManager();
-
+	
 	ConsoleHandle con;
-
+	
 	Thread t(a, NULL, new OpenGlWindow());
 	Thread luaT(l, NULL,lua);
-
+	
 	luaT.join();
 	t.join();
-
+	
 	safe_delete(lua);
-
+	
 	con < "Press Any Key To Exit...";
 	con << endl;
 	con.pause();
+
+
+
+	
 
 	return 0;
 }

@@ -15,6 +15,16 @@ String::String(const char *str)
 	text = str;
 }
 
+String::String(const char ch)
+{
+	text = ch;
+}
+
+String::String(const int32 i)
+{
+	text = std::to_string(i);
+}
+
 String::~String()
 {
 	text.clear();
