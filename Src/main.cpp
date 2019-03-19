@@ -2,6 +2,7 @@
 #include "..\Core\Src\Queue.h"
 #include "..\Core\Src\Threading\ThreadPool.h"
 #include "..\Gfx\OpenGl\OpenGlWindow.h"
+#include "..\Core\Src\WinApiWindow.h"
 #include "..\Core\Lua\Lua.h"
 #include "..\Core\Src\String.h"
 #include "..\Core\Src\Console\Console.h"
@@ -14,31 +15,15 @@ void a(void* arg)
 	int32 result = 0;
 	Window* window = (Window*)(arg);
 	
-	result = window->Initialize(640, 480, "The Essence Of A Good Day");
+	result = window->Initialize(640, 480, String("The Essence Of A Good Day"));
 	if (result)
 	{
-		{
-		ConsoleHandle con;
-		con < "OpenGl window creation error! code : ";
-		con < result;
-		con << endl;
 		safe_delete(window);
-		}
 		return;
-	}
-	else
-	{
-		ConsoleHandle con;
-		con < "OpenGl window created!";
-		con << endl;
 	}
 	window->Update();
 	
 	safe_delete(window);
-	ConsoleHandle con;
-	con < "OpenGl window destroyed!";
-	con << endl;
-	con.pause();
 }
 
 void l(void* arg)
@@ -67,11 +52,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	
 	ConsoleHandle con;
 	
-	Thread t(a, NULL, new OpenGlWindow());
+	Thread winapiThread(a, NULL, new WinApiWindow());
+	Thread openGlThread(a, NULL, new OpenGlWindow());
+	
 	Thread luaT(l, NULL,lua);
 	
 	luaT.join();
-	t.join();
+	openGlThread.join();
+	winapiThread.join();
 	
 	safe_delete(lua);
 	

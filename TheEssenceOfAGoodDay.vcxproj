@@ -158,6 +158,7 @@
     <ClInclude Include="Core\Src\Threading\ThreadPool.h" />
     <ClInclude Include="Core\Src\Threading\ThreadPoolHandle.h" />
     <ClInclude Include="Core\Src\Vector.h" />
+    <ClInclude Include="Core\Src\WinApiWindow.h" />
     <ClInclude Include="Core\Src\Window.h" />
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h" />
   </ItemGroup>
@@ -169,6 +170,7 @@
     <ClCompile Include="Core\Src\Threading\Thread.cpp" />
     <ClCompile Include="Core\Src\Threading\ThreadPool.cpp" />
     <ClCompile Include="Core\Src\Threading\ThreadPoolHandle.cpp" />
+    <ClCompile Include="Core\Src\WinApiWindow.cpp" />
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp" />
     <ClCompile Include="Src\main.cpp" />
   </ItemGroup>
