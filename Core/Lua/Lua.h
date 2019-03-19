@@ -1,5 +1,5 @@
 #pragma once
-#include "..\Src\corestd.h"
+#include "LuaPointer.h"
 #include <LUA/include/lua.hpp>
 #include <LUA/include/lualib.h>
 #include <LUA/include/lauxlib.h>

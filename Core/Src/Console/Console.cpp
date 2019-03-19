@@ -1,7 +1,7 @@
 #include "Console.h"
 #include <conio.h>
 
-#define CONSOLE_DEBUG
+//#define CONSOLE_DEBUG
 
 namespace
 {

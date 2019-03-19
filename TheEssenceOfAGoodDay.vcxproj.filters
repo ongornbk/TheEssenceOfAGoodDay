@@ -72,6 +72,9 @@
     <ClCompile Include="Core\Src\Threading\Thread.cpp">
       <Filter>Engine\Core\Threading</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Src\WinApiWindow.cpp">
+      <Filter>Engine\Core\Framework</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Src\corestd.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="Core\Src\Threading\ThreadPoolHandle.h">
       <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\WinApiWindow.h">
+      <Filter>Engine\Core\Framework</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
