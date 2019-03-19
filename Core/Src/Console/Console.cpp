@@ -1,7 +1,7 @@
 #include "Console.h"
 #include <conio.h>
 
-//#define CONSOLE_DEBUG
+#define CONSOLE_DEBUG
 
 namespace
 {
@@ -33,17 +33,13 @@ ConsoleHandle::ConsoleHandle()
 	{
 		instance = new Console();
 #ifdef CONSOLE_DEBUG
-		instance->lock(Console::ConsoleStream::COUT);
-		printf_s("Console created for %d\n", id);
-		instance->unlock(Console::ConsoleStream::COUT);
+		print("Console created for %s\n", String(id).c_str());
 #endif
 	}
 	else
 	{
 #ifdef CONSOLE_DEBUG
-		instance->lock(Console::ConsoleStream::COUT);
-		printf_s("CHandle created for %d\n", id);
-		instance->unlock(Console::ConsoleStream::COUT);
+		print("CHandle created for %s\n", String(id).c_str());
 #endif
 	}
 
@@ -57,18 +53,14 @@ ConsoleHandle::~ConsoleHandle()
 		if (uses.load(std::memory_order::memory_order_seq_cst) == 0u)
 		{
 #ifdef CONSOLE_DEBUG
-			instance->lock(Console::ConsoleStream::COUT);
-			printf_s("Console destroyed for %d\n", id);
-			instance->unlock(Console::ConsoleStream::COUT);
+			print("Console destroyed for %s\n", String(id).c_str());
 #endif
 			safe_delete(instance);
 		}
 		else
 		{
 #ifdef CONSOLE_DEBUG
-			instance->lock(Console::ConsoleStream::COUT);
-			printf_s("Opened CHandle destroyed for %d\n", id);
-			instance->unlock(Console::ConsoleStream::COUT);
+			print("Opened CHandle destroyed for %s\n", String(id).c_str());
 #endif
 		}
 	}
@@ -313,18 +305,14 @@ void ConsoleHandle::close()
 		if (uses.load(std::memory_order::memory_order_seq_cst) == 0u)
 		{
 #ifdef CONSOLE_DEBUG
-			instance->lock(Console::ConsoleStream::COUT);
-			printf_s("Console manually closed by %d\n", id);
-			instance->unlock(Console::ConsoleStream::COUT);
+			print("Console manually closed by %s\n", String(id).c_str());
 #endif
 			safe_delete(instance);
 		}
 		else
 		{
 #ifdef CONSOLE_DEBUG
-			instance->lock(Console::ConsoleStream::COUT);
-			printf_s("Handle closed by %d\n", id);
-			instance->unlock(Console::ConsoleStream::COUT);
+			print("Handle closed by %s\n", String(id).c_str());
 #endif
 		}
 	}
@@ -348,6 +336,13 @@ void ConsoleHandle::SoftLock(Console::ConsoleStream stream)
 		instance->lock(stream);
 		stance = HandleStance::BLOCKED;
 	}
+}
+
+
+void ConsoleHandle::unlock()
+{
+	assert(stance == HandleStance::BLOCKED);
+	stance = HandleStance::UNBLOCKED;
 }
 
 void ConsoleHandle::SoftLock(Console::ConsoleStream streamA, Console::ConsoleStream streamB)
@@ -377,7 +372,7 @@ void ConsoleHandle::print(const char* format, const char* text,bool hard)
 	{
 		instance->cstance.store(Console::ConsoleStance::PRINTING);
 		SoftLock(Console::ConsoleStream::COUT);
-		printf_s("%s", text);
+		printf_s(format, text);
 		if (hard)
 		{
 			instance->unlock(Console::ConsoleStream::COUT);
@@ -389,7 +384,7 @@ void ConsoleHandle::print(const char* format, const char* text,bool hard)
 	case Console::ConsoleStance::PRINTING:
 	{
 		SoftLock(Console::ConsoleStream::COUT);
-		printf_s("%s", text);
+		printf_s(format, text);
 		if (hard)
 		{
 			instance->unlock(Console::ConsoleStream::COUT);
@@ -438,4 +433,5 @@ void ConsoleHandle::print_delayed()
 	}
 	instance->unlock(Console::ConsoleStream::COUT);
 	instance->unlock(Console::ConsoleStream::DEL);
+	unlock();
 }

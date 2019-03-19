@@ -25,6 +25,11 @@ String::String(const int32 i)
 	text = std::to_string(i);
 }
 
+String::String(const uint32 u)
+{
+	text = std::to_string(u);
+}
+
 String::~String()
 {
 	text.clear();

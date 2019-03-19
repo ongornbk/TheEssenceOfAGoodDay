@@ -103,6 +103,8 @@ private:
 	void SoftLock(Console::ConsoleStream stream);
 	void SoftLock(Console::ConsoleStream streamA, Console::ConsoleStream streamB);
 
+	void unlock();
+
 	void print(const char* format, const char* text, bool hard = true);
 	void print_delayed();
 };
