@@ -49,9 +49,9 @@ extern "C"
 
 	static int32_t _cdecl LuaConsoleGetInput(lua_State* state) noexcept
 	{
-		String str;
+		String str(lua_tostring(state,1));
 		ConsoleHandle con;
-		con >> str;
+		con > str;
 		lua_pushstring(state, str.c_str());
 		return 1;
 	}

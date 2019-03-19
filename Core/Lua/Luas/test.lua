@@ -1,4 +1,3 @@
-Print("Set new console title :")
-local input = GetInput()
+local input = GetInput("Set new console title : ")
 Endline()
 SetConsoleTitle(tostring(input))

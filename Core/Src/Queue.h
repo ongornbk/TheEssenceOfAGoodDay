@@ -1,16 +1,14 @@
 #pragma once
-#include "corestd.h"
+#include "IStruct.h"
 
 template <class T>
-class Queue
+class Queue : public IStruct<T>
 {
 
 public:
 
-	struct QueueElement
+	struct QueueElement : public IElement<T>
 	{
-		T             data;
-		QueueElement* next;
 
 		QueueElement(const T element)
 		{
@@ -20,19 +18,15 @@ public:
 
 		~QueueElement()
 		{
-			if (next)
-			{
-				delete next;
-				next = nullptr;
-			}
+			safe_delete(next);
 		}
 
 	};
 
 
 
-	QueueElement* __head;
-	QueueElement* __tail;
+	IElement<T>* __head;
+	IElement<T>* __tail;
 
 	uint32 __size;
 
@@ -44,14 +38,10 @@ public:
 	}
 	~Queue()
 	{
-		if (__head)
-		{
-			delete __head;
-			__head = nullptr;
-		}
+		safe_delete(__head);
 	}
 
-	void push(const T element)
+	void push(const T element) override
 	{
 		if (__head)
 		{
@@ -66,7 +56,7 @@ public:
 		__size++;
 	}
 
-	T front()
+	T& get() const override
 	{
 		assert(__head);
 		return __head->data;
@@ -75,26 +65,26 @@ public:
 	void pop()
 	{
 		assert(__head);
-		QueueElement* pop = __head;
+		IElement<T>* pop = __head;
 		__head = __head->next;
 			pop->next = nullptr;
 			delete pop;
 			__size--;
 	}
 
-	uint32 size() const
+	uint32 size() const override
 	{
 		return __size;
 	}
 
-	bool empty() const
+	bool empty() const override
 	{
 		if (__size)
 			return false;
 		else return true;
 	}
 
-	QueueElement* head()
+	IElement<T>* front() const override
 	{
 		return __head;
 	}

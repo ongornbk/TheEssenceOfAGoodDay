@@ -11,6 +11,8 @@ public:
 	~String();
 	explicit String(string str);
 	explicit String(const char*);
+	explicit String(const char);
+	explicit String(const int32);
 
 	string get_string();
 	const char* c_str();

@@ -101,14 +101,26 @@
     <ClInclude Include="Core\Src\Console\Console.h">
       <Filter>Engine\Core\Console</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Src\Threading\ThreadPoolHandle.h">
-      <Filter>Engine\Core\Threading</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Src\Threading\ThreadPool.h">
       <Filter>Engine\Core\Threading</Filter>
     </ClInclude>
     <ClInclude Include="Core\Src\Threading\Thread.h">
       <Filter>Engine\Core\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Stack.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\IStruct.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\IElement.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Pair.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Threading\ThreadPoolHandle.h">
+      <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
