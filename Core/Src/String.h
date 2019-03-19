@@ -13,6 +13,7 @@ public:
 	explicit String(const char*);
 	explicit String(const char);
 	explicit String(const int32);
+	explicit String(const uint32);
 
 	string get_string();
 	const char* c_str();
