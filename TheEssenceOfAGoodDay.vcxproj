@@ -150,6 +150,7 @@
     <ClInclude Include="Core\Src\corestd.h" />
     <ClInclude Include="Core\Src\IElement.h" />
     <ClInclude Include="Core\Src\IStruct.h" />
+    <ClInclude Include="Core\Src\Map.h" />
     <ClInclude Include="Core\Src\Node.h" />
     <ClInclude Include="Core\Src\Pair.h" />
     <ClInclude Include="Core\Src\Queue.h" />
@@ -170,7 +171,6 @@
   <ItemGroup>
     <ClCompile Include="Core\Lua\Lua.cpp" />
     <ClCompile Include="Core\Src\Console\Console.cpp" />
-    <ClCompile Include="Core\Src\Node.cpp" />
     <ClCompile Include="Core\Src\String.cpp" />
     <ClCompile Include="Core\Src\Threading\Thread.cpp" />
     <ClCompile Include="Core\Src\Threading\ThreadPool.cpp" />

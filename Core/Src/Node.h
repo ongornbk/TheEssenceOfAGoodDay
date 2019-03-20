@@ -1,17 +1,21 @@
 #pragma once
+#include "corestd.h"
 
 template <class T>
-class Node {
-public:
-	Node();
-	Node(T const&);
-	~Node();
-	T const getValue();
-	void setValue(T  const&);
-	void setNext(Node<T> *);
-	Node<T>* getNext();
+struct Node
+{
+	T     data;
+	Node<T>* left;
+	Node<T>* right;
 
-private:
-	T value;
-	Node<T> *next;
+	Node()
+	{
+
+	}
+
+	~Node()
+	{
+		safe_delete(left);
+		safe_delete(right);
+	}
 };
