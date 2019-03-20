@@ -34,7 +34,6 @@ typedef void(__cdecl*      Function)(void*);
 template <class T>
 inline void safe_delete(T ptr)
 {
-	assert(ptr);
 	if (ptr)
 	{
 		delete ptr;

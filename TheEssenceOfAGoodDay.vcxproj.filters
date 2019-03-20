@@ -54,9 +54,6 @@
     <ClCompile Include="Src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Src\Node.cpp">
-      <Filter>Engine\Core</Filter>
-    </ClCompile>
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp">
       <Filter>Engine\Gfx\OpenGl</Filter>
     </ClCompile>
@@ -102,9 +99,6 @@
       <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Src\Queue.h">
-      <Filter>Engine\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Src\Node.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h">
@@ -160,6 +154,12 @@
     </ClInclude>
     <ClInclude Include="Gfx\DirectX11\DirectX11Window.h">
       <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Map.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Node.h">
+      <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
