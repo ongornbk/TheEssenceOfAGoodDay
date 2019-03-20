@@ -1,7 +1,7 @@
 #pragma once
 #include "Thread.h"
 #include "..\Queue.h"
-#include "..\Vector.h"
+#include "..\Array.h"
 
 
 struct Task
@@ -24,7 +24,7 @@ class ThreadPool
 	Queue<Task>      _taskQueue;
 	atomic<size_t>       _taskNum;
 	mutex                _mutex;
-	Vector<Thread*>      _threads;
+	Array<Thread*>      _threads;
 
 public:
 	ThreadPool(size_t num_threads = std::thread::hardware_concurrency());

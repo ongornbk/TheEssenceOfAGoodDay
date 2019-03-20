@@ -8,7 +8,7 @@
 #include "..\Core\Src\String.h"
 #include "..\Core\Src\Console\Console.h"
 #include "..\Core\Src\Stack.h"
-#include "..\Core\Src\Map.h"
+#include "..\Core\Src\BinaryTree.h"
 
 #include <string>
 
@@ -32,10 +32,7 @@ void dxThreadf(void* arg)
 	safe_delete(window);
 }
 
-bool _cdecl compare(const int32& a,const int32& b)
-{
-	return a < b;
-}
+
 
 void l(void* arg)
 {
@@ -62,8 +59,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	//LuaManager* lua = new LuaManager();
 	
 	
-	
-
 	//Thread winapiThread(a, NULL, new WinApiWindow());
 	//Thread dxThread(dxThreadf, NULL, new DirectX11Window());
 
@@ -77,27 +72,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	
 	//safe_delete(lua);
 
-	Map<int32> map(compare);
-
-	Vector<int32> vec;
-
-
-	for (int i = 0; i < 100; i++)
-	{
-		map.push(i*(100 - i));
-	}
-
-	map.read(vec);
-
 	ConsoleHandle con;
-
-	for (auto i : vec)
-	{
-		con < i;
-		con < endl;
-	}
-
-	con < "Press Any Key To Exit...";
+	con < String("Press Any Key To Exit...");
 	con << endl;
 	con.pause();
 

@@ -1,7 +1,7 @@
 #include "Node.h"
 
 template <class T>
-class Map
+class BinaryTree
 {
 	bool(_cdecl* m_foo)(const T& A, const T& B);
 
@@ -11,11 +11,11 @@ class Map
 
 public:
 
-	Map(bool(_cdecl* foo)(const T& A, const T& B)) : m_foo(foo)
+	BinaryTree(bool(_cdecl* foo)(const T& A, const T& B)) : m_foo(foo)
 	{ 
 		assert(foo);
 	}
-	~Map()
+	~BinaryTree()
 	{
 		safe_delete(root);
 	}
@@ -77,7 +77,12 @@ public:
 		else return nullptr;
 	}
 
-	void read(Node<T>* node, Vector<T>& vec,uint32& count)
+	Node<T>* find(const T element)
+	{
+		return find(element, root);
+	}
+
+	void read(Node<T>* node, Array<T>& vec,uint32& count)
 	{
 		if (node == nullptr) return;
 		read(node->left, vec, count);
@@ -86,9 +91,10 @@ public:
 		read(node->right, vec, count);
 	}
 
-	void read(Vector<T>& vec)
+	void read(Array<T>& vec)
 	{
 		vec.resize(__size);
+		
 		uint32 count = 0u;
 		if (root == nullptr) return;
 		read(root->left, vec, count);

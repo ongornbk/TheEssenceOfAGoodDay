@@ -1,5 +1,5 @@
 #pragma once
-#include "Vector.h"
+#include "Array.h"
 #include <sstream>
 
 class String
@@ -13,10 +13,14 @@ public:
 	explicit String(const char*);
 	explicit String(const char);
 	explicit String(const int32);
+	explicit String(const int64);
 	explicit String(const uint32);
+	explicit String(const uint64);
 
 	string get_string() const noexcept;
 	const char* c_str() const noexcept;
+
+	size_t length() const noexcept;
 
 	float to_float();
 
@@ -29,7 +33,7 @@ public:
 	String& operator += (const char ch);
 	String& operator += (const char* str);
 
-	bool operator ==(String & B);
+	bool operator ==(const String& B) const;
 	bool operator ==(const char* B);
 	bool operator ==(const char B);
 	bool operator !=(const char B);
@@ -38,5 +42,5 @@ public:
 	void clear();
 };
 
-void SplitString(Vector<String*> &vec,String &s, char delim);
+void SplitString(Array<String*> &vec,String &s, char delim);
 

@@ -6,6 +6,7 @@
 #include <shared_mutex>
 #include <string>
 #include <fstream>
+#include <vector>
 
 
 #include <Windows.h>
@@ -17,6 +18,7 @@ using std::shared_mutex;
 using std::string;
 using std::fstream;
 using std::ifstream;
+using std::vector;
 
 typedef signed char        int8;
 typedef signed short       int16;
@@ -50,5 +52,5 @@ public:
 	}
 };
 
-#define endl '\n'
+#define endl String('\n')
 #define CONSOLE_NAME "The Essence Of A Good Day"

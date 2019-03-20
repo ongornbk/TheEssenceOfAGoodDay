@@ -30,6 +30,16 @@ String::String(const uint32 u)
 	text = std::to_string(u);
 }
 
+String::String(const int64 i)
+{
+	text = std::to_string(i);
+}
+
+String::String(const uint64 u)
+{
+	text = std::to_string(u);
+}
+
 String::~String()
 {
 	text.clear();
@@ -43,6 +53,11 @@ string String::get_string() const noexcept
 const char* String::c_str() const noexcept
 {
 	return text.c_str();
+}
+
+size_t String::length() const noexcept
+{
+	return text.length();
 }
 
 int32 String::to_int32()
@@ -80,7 +95,7 @@ String& String::operator+=(const char* str)
 	return *this;
 }
 
-bool String::operator==(String & B)
+bool String::operator==(const String& B) const
 {
 	if (strcmp(this->c_str(), B.c_str()))
 		return false;
@@ -113,7 +128,7 @@ bool String::operator!=(const char* B)
 	return (!(*this == B));
 }
 
-void SplitString(Vector<String*> &vec,String &s, char delim)
+void SplitString(Array<String*> &vec,String &s, char delim)
 {
 	std::stringstream ss(s.get_string());
 	string item;
