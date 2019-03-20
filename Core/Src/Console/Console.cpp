@@ -211,11 +211,15 @@ void ConsoleHandle::operator< (char ch)
 	print("%s", String(ch).c_str(), false);
 }
 
-void ConsoleHandle::operator< (int32 integer)
+void ConsoleHandle::operator< (const int32 integer)
 {
 	print("%s", String(integer).c_str(),false);
 }
 
+void ConsoleHandle::operator< (const int64 integer)
+{
+	print("%s", String(integer).c_str(), false);
+}
 
 void ConsoleHandle::operator>>(String& str)
 {
@@ -300,7 +304,7 @@ void ConsoleHandle::operator >(String & str)
 
 	instance->cstance.store(lcs);
 	instance->unlock(Console::ConsoleStream::CIN);
-	printf_s("%c",endl);
+	printf_s("%s",endl.c_str());
 	instance->unlock(Console::ConsoleStream::COUT);
 	print_delayed();
 }

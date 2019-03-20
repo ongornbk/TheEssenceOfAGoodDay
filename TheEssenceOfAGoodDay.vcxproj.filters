@@ -95,9 +95,6 @@
     <ClInclude Include="Core\Src\corestd.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Src\Vector.h">
-      <Filter>Engine\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Src\Queue.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
@@ -155,10 +152,13 @@
     <ClInclude Include="Gfx\DirectX11\DirectX11Window.h">
       <Filter>Engine\Gfx\DirectX11</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Src\Map.h">
+    <ClInclude Include="Core\Src\Node.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Src\Node.h">
+    <ClInclude Include="Core\Src\BinaryTree.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Array.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>

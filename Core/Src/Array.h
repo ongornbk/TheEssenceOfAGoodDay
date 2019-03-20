@@ -2,17 +2,17 @@
 #include "corestd.h"
 
 template <class T>
-class Vector
+class Array
 {
 public:
 
-	explicit Vector()
+	explicit Array()
 	{
 		m_size = 0u;
 		m_capacity = 2u;
 		m_data = (T*)malloc(sizeof(T)*m_capacity);
 	}
-	Vector(uint32 capacity)
+	Array(uint32 capacity)
 	{
 		assert(capacity);
 		m_size = 0u;
@@ -20,7 +20,7 @@ public:
 		m_data = (T*)malloc(sizeof(T)*m_capacity);
 	}
 
-	~Vector()
+	~Array()
 	{
 		free(m_data);
 	}
@@ -111,25 +111,25 @@ private:
 };
 
 template <class T>
-class Vector_view
+class Array_view
 {
 	T* m_data;
 	uint32 m_size;
 public:
 
-	explicit Vector_view(const T* data, uint32 size)
+	explicit Array_view(const T* data, uint32 size)
 	{
 		m_data = data;
 		m_size = size;
 	}
 
-	explicit Vector_view(T* begin, T* end)
+	explicit Array_view(T* begin, T* end)
 	{
 		m_size = (uint32)(end - begin);
 		m_data = begin;
 	}
 
-	~Vector_view()
+	~Array_view()
 	{
 
 	}

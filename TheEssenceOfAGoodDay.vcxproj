@@ -150,7 +150,7 @@
     <ClInclude Include="Core\Src\corestd.h" />
     <ClInclude Include="Core\Src\IElement.h" />
     <ClInclude Include="Core\Src\IStruct.h" />
-    <ClInclude Include="Core\Src\Map.h" />
+    <ClInclude Include="Core\Src\BinaryTree.h" />
     <ClInclude Include="Core\Src\Node.h" />
     <ClInclude Include="Core\Src\Pair.h" />
     <ClInclude Include="Core\Src\Queue.h" />
@@ -159,7 +159,7 @@
     <ClInclude Include="Core\Src\Threading\Thread.h" />
     <ClInclude Include="Core\Src\Threading\ThreadPool.h" />
     <ClInclude Include="Core\Src\Threading\ThreadPoolHandle.h" />
-    <ClInclude Include="Core\Src\Vector.h" />
+    <ClInclude Include="Core\Src\Array.h" />
     <ClInclude Include="Core\Src\WinApiWindow.h" />
     <ClInclude Include="Core\Src\Window.h" />
     <ClInclude Include="Gfx\DirectX11\DirectX11.h" />
