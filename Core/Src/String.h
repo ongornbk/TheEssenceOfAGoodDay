@@ -39,6 +39,8 @@ public:
 	bool operator !=(const char B);
 	bool operator !=(const char* B);
 
+	bool operator <(const String& B) const;
+
 	void clear();
 };
 

@@ -28,6 +28,7 @@ COORD GetConsoleCursorPosition(HANDLE hConsoleOutput)
 ConsoleHandle::ConsoleHandle()
 {
 	uses++;
+	mformat = String("%s");
 	id = uses.load();
 	if (!instance)
 	{
@@ -168,57 +169,62 @@ void Console::GoBack()
 
 void ConsoleHandle::operator << (String str)
 {
-	print("%s", str.c_str(), true);
+	print(mformat.c_str(), str.c_str(), true);
 }
 
 void ConsoleHandle::operator << (const char* str)
 {
-	print("%s", str, true);
+	print(mformat.c_str(), str, true);
 }
 
 void ConsoleHandle::operator << (const unsigned char* str)
 {
-	print("%s", (char*)str, true);
+	print(mformat.c_str(), (char*)str, true);
 }
 
 void ConsoleHandle::operator<< (char ch)
 {
-	print("%s", String(ch).c_str(), true);
+	print(mformat.c_str(), String(ch).c_str(), true);
 }
 
 void ConsoleHandle::operator<< (int32 integer)
 {
-	print("%s", String(integer).c_str(), true);
+	print(mformat.c_str(), String(integer).c_str(), true);
 }
 
 void ConsoleHandle::operator < (String str)
 {
-	print("%s",str.c_str(), false);
+	print(mformat.c_str(),str.c_str(), false);
 }
 
 void ConsoleHandle::operator < (const char* str)
 {
-	print("%s", str, false);
+	print(mformat.c_str(), str, false);
 }
 
 void ConsoleHandle::operator < (const unsigned char* str)
 {
-	print("%s", (char*)str, false);
+	print(mformat.c_str(), (char*)str, false);
 }
 
 void ConsoleHandle::operator< (char ch)
 {
-	print("%s", String(ch).c_str(), false);
+	print(mformat.c_str(), String(ch).c_str(), false);
 }
 
 void ConsoleHandle::operator< (const int32 integer)
 {
-	print("%s", String(integer).c_str(),false);
+	print(mformat.c_str(), String(integer).c_str(),false);
 }
 
 void ConsoleHandle::operator< (const int64 integer)
 {
-	print("%s", String(integer).c_str(), false);
+	print(mformat.c_str(), String(integer).c_str(), false);
+}
+
+void ConsoleHandle::operator< (const uint64 integer)
+{
+	print(mformat.c_str(), String(integer).c_str(), false);
 }
 
 void ConsoleHandle::operator>>(String& str)
@@ -441,11 +447,26 @@ void ConsoleHandle::print_delayed()
 {
 	SoftLock(Console::ConsoleStream::COUT, Console::ConsoleStream::DEL);
 	auto del = instance->delayedOut;
-	pop_each(del)
+	_pop_each(del)
 	{
 		printf_s(del->get().first.c_str(), del->get().second.c_str());
 	}
 	instance->unlock(Console::ConsoleStream::COUT);
 	instance->unlock(Console::ConsoleStream::DEL);
-	unlock();
+	unlock();//Do not delete this line, IntelliSense is fake news!
+}
+
+void ConsoleHandle::format(const String form) noexcept
+{
+	mformat = form;
+}
+
+void ConsoleHandle::format() noexcept
+{
+	mformat = String("%s");
+}
+
+void ConsoleHandle::format(const char* form) noexcept
+{
+	mformat = String(form);
 }

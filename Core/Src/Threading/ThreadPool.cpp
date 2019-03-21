@@ -25,10 +25,6 @@ static void _cdecl ThreadLoop(void* pt)
 ThreadPool::ThreadPool(size_t num_threads) : _running(true), _taskNum(0)
 {
 	m_instance = this;
-	auto thread_loop = [](void* pt) {
-
-		
-	};
 	_threads.reserve(num_threads);
 	for (size_t i = 0; i < num_threads; i++) {
 		Thread* t = new Thread(ThreadLoop, NULL, this);

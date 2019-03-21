@@ -25,9 +25,6 @@
     <Filter Include="Engine\Gfx">
       <UniqueIdentifier>{ee38ef02-d509-4e20-b693-b1dde3d43e7c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Gfx\OpenGl">
-      <UniqueIdentifier>{849b13fa-65f2-4a59-bb1a-8da1e88a89c9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Core\Framework">
       <UniqueIdentifier>{1d9a26c5-9d4e-40e6-b2d6-246cc6920083}</UniqueIdentifier>
     </Filter>
@@ -40,11 +37,14 @@
     <Filter Include="Engine\Core\Lua\Scripts">
       <UniqueIdentifier>{2dca4246-d075-4762-ad36-020f17657a44}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Gfx\OpenGl\Shader">
-      <UniqueIdentifier>{dd9ee754-662a-46b4-b215-db156dfd0547}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Gfx\DirectX11">
       <UniqueIdentifier>{e11f7861-0f18-4f82-ba79-c30b46a1ec58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Gfx\DirectX11\OpenGl">
+      <UniqueIdentifier>{849b13fa-65f2-4a59-bb1a-8da1e88a89c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Gfx\DirectX11\OpenGl\Shader">
+      <UniqueIdentifier>{dd9ee754-662a-46b4-b215-db156dfd0547}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,7 +55,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp">
-      <Filter>Engine\Gfx\OpenGl</Filter>
+      <Filter>Engine\Gfx\DirectX11\OpenGl</Filter>
     </ClCompile>
     <ClCompile Include="Core\Lua\Lua.cpp">
       <Filter>Engine\Core\Lua</Filter>
@@ -79,10 +79,10 @@
       <Filter>Engine\Core\Framework</Filter>
     </ClCompile>
     <ClCompile Include="Gfx\OpenGl\OpenGL.cpp">
-      <Filter>Engine\Gfx\OpenGl</Filter>
+      <Filter>Engine\Gfx\DirectX11\OpenGl</Filter>
     </ClCompile>
     <ClCompile Include="Gfx\OpenGl\Shader\Shader.cpp">
-      <Filter>Engine\Gfx\OpenGl\Shader</Filter>
+      <Filter>Engine\Gfx\DirectX11\OpenGl\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Gfx\DirectX11\DirectX11.cpp">
       <Filter>Engine\Gfx\DirectX11</Filter>
@@ -99,7 +99,7 @@
       <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h">
-      <Filter>Engine\Gfx\OpenGl</Filter>
+      <Filter>Engine\Gfx\DirectX11\OpenGl</Filter>
     </ClInclude>
     <ClInclude Include="Core\Src\Window.h">
       <Filter>Engine\Core\Framework</Filter>
@@ -131,9 +131,6 @@
     <ClInclude Include="Core\Src\Pair.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Src\Threading\ThreadPoolHandle.h">
-      <Filter>Engine\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Src\WinApiWindow.h">
       <Filter>Engine\Core\Framework</Filter>
     </ClInclude>
@@ -141,10 +138,10 @@
       <Filter>Engine\Core\Lua</Filter>
     </ClInclude>
     <ClInclude Include="Gfx\OpenGl\OpenGL.h">
-      <Filter>Engine\Gfx\OpenGl</Filter>
+      <Filter>Engine\Gfx\DirectX11\OpenGl</Filter>
     </ClInclude>
     <ClInclude Include="Gfx\OpenGl\Shader\Shader.h">
-      <Filter>Engine\Gfx\OpenGl\Shader</Filter>
+      <Filter>Engine\Gfx\DirectX11\OpenGl\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Gfx\DirectX11\DirectX11.h">
       <Filter>Engine\Gfx\DirectX11</Filter>
@@ -160,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Core\Src\Array.h">
       <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Threading\ThreadPoolHandle.h">
+      <Filter>Engine\Core\Threading</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
