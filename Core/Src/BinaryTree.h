@@ -1,8 +1,19 @@
+#pragma once
 #include "Node.h"
+
+
+//#define BINARYTREE_DEBUG
+#ifdef BINARYTREE_DEBUG
+#include "Console\Console.h"
+#endif // BINARYTREE_DEBUG
+
 
 template <class T>
 class BinaryTree
 {
+
+protected:
+
 	bool(_cdecl* m_foo)(const T& A, const T& B);
 
 	Node<T>* root{};
@@ -15,7 +26,7 @@ public:
 	{ 
 		assert(foo);
 	}
-	~BinaryTree()
+	virtual  ~BinaryTree()
 	{
 		safe_delete(root);
 	}
@@ -63,7 +74,7 @@ public:
 		}
 	}
 
-	Node<T>* find(const T element,Node<T>* node)
+	Node<T>*& find(const T element,Node<T>* &node)
 	{
 		if (node != nullptr)
 		{
@@ -74,7 +85,43 @@ public:
 			else
 				return find(element, node->right);
 		}
-		else return nullptr;
+		else return node;
+	}
+
+	Node<T>*& find(const T element, Node<T>* &node,bool(_cdecl* foo)(const T& A, const T& B))
+	{
+#ifdef BINARYTREE_DEBUG
+		{
+			ConsoleHandle con;
+			con < "Node<T>* find(const T element, Node<T>* &node,bool(_cdecl* foo)(const T& A, const T& B)) ::: CALLED";
+			con < endl;
+			con < "element = ";
+			con.format("%016llX");
+			con < memory_cast<uint64>(&element);
+			con.format();
+			con < " node = ";
+			con.format("%016llX");
+			con < memory_cast<uint64>(&node);
+			con.format();
+			con < " foo = ";
+			con.format("%016llX");
+			con < memory_cast<uint64>(foo);
+			con.format();
+			con << endl;
+		}
+#endif // BINARYTREE_DEBUG
+
+		
+		if (node != nullptr)
+		{
+			if (foo(element,node->data))
+				return node;
+			if (m_foo(element, node->data))
+				return find(element, node->left,foo);
+			else
+				return find(element, node->right,foo);
+		}
+		else return node;
 	}
 
 	Node<T>* find(const T element)
@@ -82,7 +129,7 @@ public:
 		return find(element, root);
 	}
 
-	void read(Node<T>* node, Array<T>& vec,uint32& count)
+	void read(Node<T>* node, vector<T>& vec,uint32& count)
 	{
 		if (node == nullptr) return;
 		read(node->left, vec, count);
@@ -91,7 +138,7 @@ public:
 		read(node->right, vec, count);
 	}
 
-	void read(Array<T>& vec)
+	void read(vector<T>& vec)
 	{
 		vec.resize(__size);
 		

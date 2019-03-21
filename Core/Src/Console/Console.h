@@ -68,6 +68,8 @@ class ConsoleHandle
 
 	bool   closed = false;
 	uint32 id{};
+
+	String mformat;
 public:
 
 	enum HandleStance
@@ -85,6 +87,7 @@ public:
 	void operator < (char str);
 	void operator < (int32 integer);
 	void operator < (const int64 integer);
+	void operator < (const uint64 integer);
 	void operator << (String str);
 	void operator << (const char* str);
 	void operator << (const unsigned char* str);
@@ -97,6 +100,9 @@ public:
 
 	void close();
 	void pause();
+	void format(const char* form) noexcept;
+	void format(const String form) noexcept;
+	void format() noexcept;
 
 	void SetTitle(String str);
 

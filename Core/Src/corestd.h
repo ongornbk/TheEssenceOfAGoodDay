@@ -1,5 +1,5 @@
 #pragma once
-
+#define NOMINMAX
 #include <cassert>
 #include <atomic>
 #include <mutex>
@@ -7,7 +7,8 @@
 #include <string>
 #include <fstream>
 #include <vector>
-
+#include <sal.h>
+#include <algorithm>
 
 #include <Windows.h>
 
@@ -34,13 +35,19 @@ typedef void*              Handle;
 typedef void(__cdecl*      Function)(void*);
 
 template <class T>
-inline void safe_delete(T ptr)
+inline void safe_delete(T& ptr)
 {
 	if (ptr)
 	{
 		delete ptr;
 		ptr = nullptr;
 	}
+}
+
+template <class _Out_ ReturnType, class _In_ Type>
+inline ReturnType& memory_cast(const Type& obj)
+{
+	return *(ReturnType*)(obj);
 }
 
 class UInteger32

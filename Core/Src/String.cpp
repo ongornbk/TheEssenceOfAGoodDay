@@ -79,7 +79,11 @@ bool String::to_bool()
 
 String& String::operator=(const String& str)
 {
-	this->text = str.text;
+	text.clear();
+	for (auto c : str.get_string())
+	{
+		text += c;
+	}
 	return *this;
 }
 
@@ -100,6 +104,19 @@ bool String::operator==(const String& B) const
 	if (strcmp(this->c_str(), B.c_str()))
 		return false;
 	else return true;
+}
+
+bool String::operator < (const String& B) const
+{
+	const size_t length = std::min(text.length(), B.length());
+	for (uint64 i = 0u; i < length; i++)
+	{
+		const auto ch0 = text[i];
+		const auto ch1 = B.get_string()[i];
+		if (ch0 != ch1) return ch0 < ch1;
+	}
+
+	return text.length() < B.length();
 }
 
 bool String::operator==(const char* B)

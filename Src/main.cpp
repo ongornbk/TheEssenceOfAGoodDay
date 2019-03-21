@@ -47,6 +47,12 @@ void l(void* arg)
 	lua->Execute("test.lua");
 }
 
+
+bool _cdecl cmp(const String& a, const String& b)
+{
+	return a < b;
+}
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
@@ -72,10 +78,50 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	
 	//safe_delete(lua);
 
+	vector<String> strs;
+	BinaryTree<String> btree(cmp);
+
+	{
+		ConsoleHandle con;
+		String str;
+		while (true)
+		{
+			str.clear();
+			con >> str;
+			if (str == "END")
+				break;
+			else
+				btree.push(str);
+		}
+	}
+
+	btree.read(strs);
+
+	
+
+
+
+
+
 	ConsoleHandle con;
+
+	for (auto i : strs)
+	{
+		con < i;
+		con < endl;
+	}
+
+
 	con < String("Press Any Key To Exit...");
 	con << endl;
 	con.pause();
+
+	//auto a = threads[String("dx")];
+	//if (a) a->join();
+
+	//con.pause();
+
+	//threads.release();
 
 	return 0;
 }
