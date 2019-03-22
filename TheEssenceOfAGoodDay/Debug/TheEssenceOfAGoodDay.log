@@ -1,0 +1,12 @@
+﻿  OpenGlWindow.cpp
+  main.cpp
+  Generating Code...
+OpenGlWindow.obj : error LNK2019: unresolved external symbol __imp__glClear@4 referenced in function "public: virtual long __thiscall OpenGlWindow::Update(void)" (?Update@OpenGlWindow@@UAEJXZ)
+OpenGlWindow.obj : error LNK2019: unresolved external symbol _glfwInit referenced in function "public: virtual long __thiscall OpenGlWindow::Initialize(long,long,char const *)" (?Initialize@OpenGlWindow@@UAEJJJPBD@Z)
+OpenGlWindow.obj : error LNK2019: unresolved external symbol _glfwTerminate referenced in function "public: virtual long __thiscall OpenGlWindow::Update(void)" (?Update@OpenGlWindow@@UAEJXZ)
+OpenGlWindow.obj : error LNK2019: unresolved external symbol _glfwCreateWindow referenced in function "public: virtual long __thiscall OpenGlWindow::Initialize(long,long,char const *)" (?Initialize@OpenGlWindow@@UAEJJJPBD@Z)
+OpenGlWindow.obj : error LNK2019: unresolved external symbol _glfwWindowShouldClose referenced in function "public: virtual long __thiscall OpenGlWindow::Update(void)" (?Update@OpenGlWindow@@UAEJXZ)
+OpenGlWindow.obj : error LNK2019: unresolved external symbol _glfwPollEvents referenced in function "public: virtual long __thiscall OpenGlWindow::Update(void)" (?Update@OpenGlWindow@@UAEJXZ)
+OpenGlWindow.obj : error LNK2019: unresolved external symbol _glfwMakeContextCurrent referenced in function "public: virtual long __thiscall OpenGlWindow::Initialize(long,long,char const *)" (?Initialize@OpenGlWindow@@UAEJJJPBD@Z)
+OpenGlWindow.obj : error LNK2019: unresolved external symbol _glfwSwapBuffers referenced in function "public: virtual long __thiscall OpenGlWindow::Update(void)" (?Update@OpenGlWindow@@UAEJXZ)
+D:\TheEssenceOfAGoodDay\TheEssenceOfAGoodDay\Debug\TheEssenceOfAGoodDay.exe : fatal error LNK1120: 8 unresolved externals
