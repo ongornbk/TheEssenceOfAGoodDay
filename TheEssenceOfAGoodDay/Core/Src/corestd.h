@@ -44,6 +44,16 @@ inline void safe_delete(T& ptr)
 	}
 }
 
+template <class T>
+inline void safe_release(T& ptr)
+{
+	if (ptr)
+	{
+		ptr->release();
+		ptr = nullptr;
+	}
+}
+
 template <class _Out_ ReturnType, class _In_ Type>
 inline ReturnType& memory_cast(const Type& obj)
 {
