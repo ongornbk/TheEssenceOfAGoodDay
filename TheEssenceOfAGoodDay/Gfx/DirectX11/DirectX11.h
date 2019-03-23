@@ -1,18 +1,18 @@
 #pragma once
-#include "..\..\Core\Src\corestd.h"
+#include "..\IGraphics.h"
 
 #include <d3d11_2.h>
 #include <directxmath.h>
 #include <directxcolors.h>
 
-class DirectX11
+class DirectX11 : public IGraphics
 {
 
 public:
 	DirectX11(void);
 	~DirectX11(void);
 
-	int32 Initialize(int32 screenWidth, int32 screenHeight, HWND hwnd, bool fullscreen, bool vsync);
+	int32 Initialize(const int32 screenWidth,const int32 screenHeight,const HWND hwnd,const uint8 flags) override;
 
 	void Begin(const float r,const float g,const float b,const float a) const;
 	void End() const;
@@ -24,8 +24,6 @@ public:
 	ID3D11DeviceContext* GetDeviceContext();
 
 private:
-
-	bool vsync_enabled;
 
 	int32 m_videoCardMemory;
 	char m_videoCardDescription[128];

@@ -53,6 +53,7 @@ bool _cdecl cmp(const String& a, const String& b)
 	return a < b;
 }
 
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
@@ -77,27 +78,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	//winapiThread.join();
 	
 	//safe_delete(lua);
-
-	vector<String> strs;
-	BinaryTree<String> btree(cmp);
-
-	{
-		ConsoleHandle con;
-		String str;
-		while (true)
-		{
-			str.clear();
-			con >> str;
-			if (str == "END")
-				break;
-			else
-				btree.push(str);
-		}
-	}
-
-	btree.read(strs);
-
-	
 
 
 

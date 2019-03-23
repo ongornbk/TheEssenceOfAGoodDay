@@ -90,6 +90,12 @@
     <ClCompile Include="Gfx\DirectX11\DirectX11Window.cpp">
       <Filter>Engine\Gfx\DirectX11</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Src\Cpu.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Gfx\IGraphics.cpp">
+      <Filter>Engine\Gfx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Src\corestd.h">
@@ -160,6 +166,12 @@
     </ClInclude>
     <ClInclude Include="Core\Src\Threading\ThreadPoolHandle.h">
       <Filter>Engine\Core\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Cpu.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\IGraphics.h">
+      <Filter>Engine\Gfx</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
