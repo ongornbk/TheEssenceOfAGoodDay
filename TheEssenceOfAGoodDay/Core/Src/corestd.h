@@ -4,6 +4,7 @@
 #include <atomic>
 #include <mutex>
 #include <shared_mutex>
+#include <condition_variable>
 #include <string>
 #include <fstream>
 #include <vector>
@@ -15,6 +16,7 @@
 using std::atomic;
 using std::mutex;
 using std::lock_guard;
+using std::unique_lock;
 using std::shared_mutex;
 using std::string;
 using std::fstream;

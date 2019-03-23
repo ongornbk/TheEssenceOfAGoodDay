@@ -6,6 +6,7 @@ static void _cdecl ThreadLoop(void* pt)
 {
 	ThreadPool* pool = (ThreadPool*)pt;
 
+
 	while (pool->_running) {
 		pool->_mutex.lock();
 		if (!pool->_taskQueue.empty()) {
