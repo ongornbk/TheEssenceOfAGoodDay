@@ -31,6 +31,9 @@
     <Filter Include="Engine\Core\Framework">
       <UniqueIdentifier>{1d9a26c5-9d4e-40e6-b2d6-246cc6920083}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Input">
+      <UniqueIdentifier>{ba15edf6-5aff-477f-bc5f-958b3e82eec2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="CommandPrompt.qpp" />
@@ -50,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp">
       <Filter>Engine\Gfx\OpenGl</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\DirectInput.cpp">
+      <Filter>Engine\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="Core\Src\Window.h">
       <Filter>Engine\Core\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\DirectInput.h">
+      <Filter>Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\List.h">
+      <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

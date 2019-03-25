@@ -22,6 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{2C1A963D-E37D-48E0-BA85-CE466E01F5D1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -127,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Src\corestd.h" />
+    <ClInclude Include="Core\Src\List.h" />
     <ClInclude Include="Core\Src\Node.h" />
     <ClInclude Include="Core\Src\Queue.h" />
     <ClInclude Include="Core\Src\Thread.h" />
@@ -134,12 +136,14 @@
     <ClInclude Include="Core\Src\Vector.h" />
     <ClInclude Include="Core\Src\Window.h" />
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h" />
+    <ClInclude Include="Input\DirectInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Src\Node.cpp" />
     <ClCompile Include="Core\Src\Thread.cpp" />
     <ClCompile Include="Core\Src\ThreadPool.cpp" />
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp" />
+    <ClCompile Include="Input\DirectInput.cpp" />
     <ClCompile Include="Src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

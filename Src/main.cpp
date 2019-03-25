@@ -12,17 +12,20 @@ using std::cin;
 
 void a(void* arg)
 {
-	Window* window = (Window*)(arg);
+	Window* window = new OpenGlWindow();
 	window->Initialize(640, 480, "The Essence Of A Good Day");
 	window->Update();
 }
 
 int32 main(int32 argc, char *argv[], char *envp[])
 {
-	Window* window = new OpenGlWindow();
+	
 
+	ThreadPool* pool = new ThreadPool();
 
-	Thread t(a, NULL, window);
+	
+
+		pool->push(a);
 
 	while (true)
 	{
@@ -32,7 +35,7 @@ int32 main(int32 argc, char *argv[], char *envp[])
 			break;
 	}
 
-	t.join();
+	pool->wait();
 
 
 	return 0;
