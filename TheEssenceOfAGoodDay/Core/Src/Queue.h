@@ -62,7 +62,7 @@ public:
 		return __head->data;
 	}
 
-	void pop()
+	void pop() override
 	{
 		assert(__head);
 		IElement<T>* pop = __head;

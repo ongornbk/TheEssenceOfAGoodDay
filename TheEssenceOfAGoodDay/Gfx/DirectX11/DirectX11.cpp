@@ -36,7 +36,7 @@ DirectX11::~DirectX11(void)
 	safe_release(m_rasterState);
 }
 
-int32 DirectX11::Initialize(int32 screenWidth, int32 screenHeight, HWND hwnd, bool fullscreen, bool vsync)
+int32 DirectX11::Initialize(const int32 screenWidth, const int32 screenHeight, const HWND hwnd, const uint8 flags)
 {
 	HRESULT result;
 	IDXGIFactory* factory;
@@ -49,7 +49,7 @@ int32 DirectX11::Initialize(int32 screenWidth, int32 screenHeight, HWND hwnd, bo
 	int32 error;
 	ID3D11Texture2D* backBufferPtr;
 
-	vsync_enabled = vsync;
+	m_flags = flags;
 
 	result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&factory);
 	if (FAILED(result))
@@ -122,7 +122,7 @@ int32 DirectX11::Initialize(int32 screenWidth, int32 screenHeight, HWND hwnd, bo
 	safe_release(adapter);
 	safe_release(factory);
 
-	if (InitializeSwapChain(hwnd, fullscreen, screenWidth, screenHeight, numerator, denominator))
+	if (InitializeSwapChain(hwnd, flags & GRAPHICS_FLAG_FULLSCREEN, screenWidth, screenHeight, numerator, denominator))
 	{
 		return 9;
 	}
@@ -196,7 +196,7 @@ void DirectX11::Begin(const float r,const  float g,const float b,const float a) 
 
 void DirectX11::End() const
 {
-	m_swapChain->Present(vsync_enabled, 0);
+	m_swapChain->Present(m_flags & GRAPHICS_FLAG_VSYNC, 0);
 }
 
 void DirectX11::EnableAlphaBlending(bool enable)
@@ -240,7 +240,7 @@ int32 DirectX11::InitializeSwapChain(HWND hwnd,const bool fullscreen,const int32
 
 	swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM_SRGB;
 
-	if (vsync_enabled)
+	if (m_flags & GRAPHICS_FLAG_VSYNC)
 	{
 		swapChainDesc.BufferDesc.RefreshRate.Numerator = numerator;
 		swapChainDesc.BufferDesc.RefreshRate.Denominator = denominator;
