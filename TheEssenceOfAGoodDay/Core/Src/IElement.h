@@ -8,3 +8,4 @@ public:
 	T             data;
 	IElement<T>*  next;
 };
+

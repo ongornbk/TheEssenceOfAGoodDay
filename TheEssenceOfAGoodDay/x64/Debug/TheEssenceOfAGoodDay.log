@@ -1,4 +1,4 @@
 ﻿  main.cpp
-  LINK : D:\TheEssenceOfAGoodDay\TheEssenceOfAGoodDay\x64\Debug\TheEssenceOfAGoodDay.exe not found or not built by the last incremental link; performing full link
+  LINK : D:\TheEssenceOfAGoodDay\x64\Debug\TheEssenceOfAGoodDay.exe not found or not built by the last incremental link; performing full link
 MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
-  TheEssenceOfAGoodDay.vcxproj -> D:\TheEssenceOfAGoodDay\TheEssenceOfAGoodDay\x64\Debug\TheEssenceOfAGoodDay.exe
+  TheEssenceOfAGoodDay.vcxproj -> D:\TheEssenceOfAGoodDay\x64\Debug\TheEssenceOfAGoodDay.exe

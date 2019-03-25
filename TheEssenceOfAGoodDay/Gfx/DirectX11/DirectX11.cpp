@@ -196,7 +196,7 @@ void DirectX11::Begin(const float r,const  float g,const float b,const float a) 
 
 void DirectX11::End() const
 {
-	m_swapChain->Present(vsync_enabled, 0);
+	m_swapChain->Present(m_flags & GRAPHICS_FLAG_VSYNC, 0);
 }
 
 void DirectX11::EnableAlphaBlending(bool enable)
@@ -240,7 +240,7 @@ int32 DirectX11::InitializeSwapChain(HWND hwnd,const bool fullscreen,const int32
 
 	swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM_SRGB;
 
-	if (vsync_enabled)
+	if (m_flags & GRAPHICS_FLAG_VSYNC)
 	{
 		swapChainDesc.BufferDesc.RefreshRate.Numerator = numerator;
 		swapChainDesc.BufferDesc.RefreshRate.Denominator = denominator;

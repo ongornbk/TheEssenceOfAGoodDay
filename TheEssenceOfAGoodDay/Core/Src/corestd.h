@@ -51,7 +51,7 @@ inline void safe_release(T& ptr)
 {
 	if (ptr)
 	{
-		ptr->release();
+		ptr->Release();
 		ptr = nullptr;
 	}
 }
@@ -73,3 +73,11 @@ public:
 
 #define endl String('\n')
 #define CONSOLE_NAME "The Essence Of A Good Day"
+
+#define _for_each(istruct_type) for(auto ele = istruct_type.front(); ele != nullptr; ele = ele->next)
+
+#define _for_each_reverse(istruct_type) for(auto ele = istruct_type.end();ele != nullptr; ele = ele->previous)
+
+#define _for_each_pair(istruct_type) for(auto ele = istruct_type->front(); ele != nullptr; ele = ele->next)
+
+#define _pop_each(istruct_type) for(;istruct_type->empty() == false;istruct_type->pop())

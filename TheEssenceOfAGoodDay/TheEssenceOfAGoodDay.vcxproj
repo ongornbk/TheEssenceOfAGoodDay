@@ -149,9 +149,12 @@
     <ClInclude Include="Core\Src\Console\Console.h" />
     <ClInclude Include="Core\Src\corestd.h" />
     <ClInclude Include="Core\Src\Cpu.h" />
+    <ClInclude Include="Core\Src\IBidirectionalElement.h" />
+    <ClInclude Include="Core\Src\IBidirectionalStruct.h" />
     <ClInclude Include="Core\Src\IElement.h" />
     <ClInclude Include="Core\Src\IStruct.h" />
     <ClInclude Include="Core\Src\BinaryTree.h" />
+    <ClInclude Include="Core\Src\List.h" />
     <ClInclude Include="Core\Src\Node.h" />
     <ClInclude Include="Core\Src\Pair.h" />
     <ClInclude Include="Core\Src\Queue.h" />

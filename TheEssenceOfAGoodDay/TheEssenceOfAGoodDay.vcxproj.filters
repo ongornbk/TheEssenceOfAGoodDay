@@ -40,10 +40,10 @@
     <Filter Include="Engine\Gfx\DirectX11">
       <UniqueIdentifier>{e11f7861-0f18-4f82-ba79-c30b46a1ec58}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Gfx\DirectX11\OpenGl">
+    <Filter Include="Engine\Gfx\OpenGl">
       <UniqueIdentifier>{849b13fa-65f2-4a59-bb1a-8da1e88a89c9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Gfx\DirectX11\OpenGl\Shader">
+    <Filter Include="Engine\Gfx\OpenGl\Shader">
       <UniqueIdentifier>{dd9ee754-662a-46b4-b215-db156dfd0547}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -55,7 +55,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp">
-      <Filter>Engine\Gfx\DirectX11\OpenGl</Filter>
+      <Filter>Engine\Gfx\OpenGl</Filter>
     </ClCompile>
     <ClCompile Include="Core\Lua\Lua.cpp">
       <Filter>Engine\Core\Lua</Filter>
@@ -79,10 +79,10 @@
       <Filter>Engine\Core\Framework</Filter>
     </ClCompile>
     <ClCompile Include="Gfx\OpenGl\OpenGL.cpp">
-      <Filter>Engine\Gfx\DirectX11\OpenGl</Filter>
+      <Filter>Engine\Gfx\OpenGl</Filter>
     </ClCompile>
     <ClCompile Include="Gfx\OpenGl\Shader\Shader.cpp">
-      <Filter>Engine\Gfx\DirectX11\OpenGl\Shader</Filter>
+      <Filter>Engine\Gfx\OpenGl\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Gfx\DirectX11\DirectX11.cpp">
       <Filter>Engine\Gfx\DirectX11</Filter>
@@ -105,7 +105,7 @@
       <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h">
-      <Filter>Engine\Gfx\DirectX11\OpenGl</Filter>
+      <Filter>Engine\Gfx\OpenGl</Filter>
     </ClInclude>
     <ClInclude Include="Core\Src\Window.h">
       <Filter>Engine\Core\Framework</Filter>
@@ -144,10 +144,10 @@
       <Filter>Engine\Core\Lua</Filter>
     </ClInclude>
     <ClInclude Include="Gfx\OpenGl\OpenGL.h">
-      <Filter>Engine\Gfx\DirectX11\OpenGl</Filter>
+      <Filter>Engine\Gfx\OpenGl</Filter>
     </ClInclude>
     <ClInclude Include="Gfx\OpenGl\Shader\Shader.h">
-      <Filter>Engine\Gfx\DirectX11\OpenGl\Shader</Filter>
+      <Filter>Engine\Gfx\OpenGl\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Gfx\DirectX11\DirectX11.h">
       <Filter>Engine\Gfx\DirectX11</Filter>
@@ -172,6 +172,15 @@
     </ClInclude>
     <ClInclude Include="Gfx\IGraphics.h">
       <Filter>Engine\Gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\List.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\IBidirectionalElement.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\IBidirectionalStruct.h">
+      <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

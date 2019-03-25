@@ -141,9 +141,9 @@ public:
 	{
 		return (m_data + m_size);
 	}
-	T operator[](uint32 element)
+	T& operator[](uint32 element)
 	{
-		assert(element < m_size)
+		assert(element < m_size);
 		return *(m_data + element);
 	}
 
