@@ -1,5 +1,5 @@
 #pragma once
-#include "corestd.h"
+#include "mmemory.h"
 
 template <class T>
 class Array
@@ -10,19 +10,19 @@ public:
 	{
 		m_size = 0u;
 		m_capacity = 2u;
-		m_data = (T*)malloc(sizeof(T)*m_capacity);
+		m_data = mmalloc<T>(m_capacity);
 	}
 	Array(uint32 capacity)
 	{
 		assert(capacity);
 		m_size = 0u;
 		m_capacity = capacity;
-		m_data = (T*)malloc(sizeof(T)*m_capacity);
+		m_data = mmalloc<T>(m_capacity);
 	}
 
 	~Array()
 	{
-		free(m_data);
+		mfree(m_data);
 	}
 
 	T* begin()
@@ -59,7 +59,7 @@ public:
 	{
 		if (capacity > m_capacity)
 		{
-			m_data = (T*)realloc(m_data, sizeof(T)*capacity);
+			m_data = mrealloc<T>(m_data, capacity);
 		}
 	}
 
@@ -69,7 +69,7 @@ public:
 		if (m_size >= m_capacity)
 		{
 			m_capacity *= 2u;
-			m_data = (T*)realloc(m_data, sizeof(T)*m_capacity);
+			m_data = mrealloc<T>(m_data, m_capacity);
 		}
 		m_data[m_size - 1u] = element;
 	}

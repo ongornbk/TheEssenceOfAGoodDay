@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="Core\Lua\Lua.h" />
     <ClInclude Include="Core\Lua\LuaPointer.h" />
+    <ClInclude Include="Core\Src\Actor.h" />
     <ClInclude Include="Core\Src\Console\Console.h" />
     <ClInclude Include="Core\Src\corestd.h" />
     <ClInclude Include="Core\Src\Cpu.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Core\Src\IStruct.h" />
     <ClInclude Include="Core\Src\BinaryTree.h" />
     <ClInclude Include="Core\Src\List.h" />
+    <ClInclude Include="Core\Src\mmemory.h" />
     <ClInclude Include="Core\Src\Node.h" />
     <ClInclude Include="Core\Src\Pair.h" />
     <ClInclude Include="Core\Src\Queue.h" />
@@ -172,6 +174,7 @@
     <ClInclude Include="Gfx\OpenGl\OpenGL.h" />
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h" />
     <ClInclude Include="Gfx\OpenGl\Shader\Shader.h" />
+    <ClInclude Include="Input\DirectInput8\DirectInput8.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Lua\Lua.cpp" />
@@ -188,6 +191,7 @@
     <ClCompile Include="Gfx\OpenGl\OpenGL.cpp" />
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp" />
     <ClCompile Include="Gfx\OpenGl\Shader\Shader.cpp" />
+    <ClCompile Include="Input\DirectInput8\DirectInput8.cpp" />
     <ClCompile Include="Src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
