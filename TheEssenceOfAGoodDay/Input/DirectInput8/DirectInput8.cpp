@@ -6,8 +6,8 @@ inline int32 safe_unacquire(T& ptr)
 	int32 result = DI_NOEFFECT;
 	if (ptr)
 	{
-		result = t->Unacquire();
-		t = nullptr;
+		result = ptr->Unacquire();
+		ptr = nullptr;
 	}
 	return result;
 }
@@ -123,7 +123,7 @@ bool DirectInput8::Update()
 	return true;
 }
 
-bool DirectInput8::IsKeyDown(const uint32 key) const
+bool DirectInput8::IsKeyDown(const uint32 key) const noexcept
 {
 	switch (m_readingState)
 	{
@@ -142,7 +142,7 @@ bool DirectInput8::IsKeyDown(const uint32 key) const
 
 
 
-bool DirectInput8::IsKeyHit(const uint32 key) const
+bool DirectInput8::IsKeyHit(const uint32 key) const noexcept
 {
 	switch (m_readingState)
 	{
@@ -159,7 +159,7 @@ bool DirectInput8::IsKeyHit(const uint32 key) const
 	return false;
 }
 
-void DirectInput8::GetMousePosition(int32 & x, int32 & y) const
+void DirectInput8::GetMousePosition(int32 & x, int32 & y) const noexcept
 {
 	switch (m_readingState)
 	{
@@ -181,7 +181,7 @@ void DirectInput8::GetMousePosition(int32 & x, int32 & y) const
 	}
 }
 
-void DirectInput8::SetReadingState(const DeviceReadingState readingState)
+void DirectInput8::SetReadingState(const DeviceReadingState readingState) noexcept
 {
 	m_readingState = readingState;
 }
@@ -263,12 +263,12 @@ void DirectInput8::ProcessInput()
 
 }
 
-BYTE DirectInput8::GetMouseState(const int32 index) const
+BYTE DirectInput8::GetMouseState(const int32 index) const noexcept
 {
 	return m_mouseState.rgbButtons[index];
 }
 
-bool DirectInput8::GetMousePressed(const int32 index) const
+bool DirectInput8::GetMousePressed(const int32 index) const noexcept
 {
 	return m_mouseState.rgbButtons[index] && !m_prevMouseState[index];
 }

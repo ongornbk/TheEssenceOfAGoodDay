@@ -9,7 +9,9 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <xmmintrin.h>
 #include <sal.h>
+#include <exception>
 
 #include <Windows.h>
 
@@ -23,6 +25,7 @@ using std::string;
 using std::fstream;
 using std::ifstream;
 using std::vector;
+using std::exception;
 
 typedef signed char        int8;
 typedef signed short       int16;
@@ -82,3 +85,5 @@ public:
 #define _for_each_pair(istruct_type) for(auto ele = istruct_type->front(); ele != nullptr; ele = ele->next)
 
 #define _pop_each(istruct_type) for(;istruct_type->empty() == false;istruct_type->pop())
+
+#define GET_VARIABLE_NAME(Variable) (#Variable)

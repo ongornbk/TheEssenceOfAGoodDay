@@ -1,5 +1,5 @@
 #pragma once
-#include "..\..\Core\Src\mmemory.h"
+#include "..\Input.h"
 
 #include <dinput.h>
 
@@ -7,27 +7,22 @@
 #pragma comment(lib,"Xinput.lib")
 #pragma comment(lib,"dxguid.lib")
 
-class DirectInput8
+class DirectInput8 : public Input
 {
 public:
 	DirectInput8(void);
 	~DirectInput8(void);
 
-	enum DeviceReadingState
-	{
-		READ_KEYBOARD, READ_MOUSE, READ_KEYBOARDANDMOUSE, READ_NOTHING
-	};
+	bool Initialize(const HINSTANCE hInstance, const HWND hwnd, const int32 screenWidth, const int32 screenHeight) override;
+	bool Update() override;
+	void Release() override;
 
-	bool Initialize(const HINSTANCE hInstance, const HWND hwnd, const int32 screenWidth, const int32 screenHeight);
-	bool Update();
-	void Release();
-
-	bool IsKeyDown(const uint32 key) const noexcept;
-	bool IsKeyHit(const uint32 key) const noexcept;
-	void GetMousePosition(int32& x, int32& y) const noexcept;
-	void SetReadingState(const DeviceReadingState readingState) noexcept;
-	BYTE GetMouseState(const int32 index) const noexcept;
-	bool GetMousePressed(const int32 index) const noexcept;
+	bool IsKeyDown(const uint32 key) const noexcept override;
+	bool IsKeyHit(const uint32 key) const noexcept override;
+	void GetMousePosition(int32& x, int32& y) const noexcept override;
+	void SetReadingState(const DeviceReadingState readingState) noexcept override;
+	BYTE GetMouseState(const int32 index) const noexcept override;
+	bool GetMousePressed(const int32 index) const noexcept override;
 
 private:
 	const static int32 s_NumKeys = 256;
