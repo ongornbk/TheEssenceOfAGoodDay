@@ -144,18 +144,15 @@
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Lua\Lua.h" />
     <ClInclude Include="Core\Lua\LuaPointer.h" />
-    <ClInclude Include="Core\Src\Actor.h" />
-    <ClInclude Include="Core\Src\Components\CollisionComponent.h" />
-    <ClInclude Include="Core\Src\Components\Component.h" />
-    <ClInclude Include="Core\Src\Components\ComponentsInformation.h" />
-    <ClInclude Include="Core\Src\Components\ComponentsUtilities.h" />
-    <ClInclude Include="Core\Src\Components\IComponent.h" />
-    <ClInclude Include="Core\Src\Components\TransformComponent.h" />
+    <ClInclude Include="Core\Src\Components\Actor.h" />
     <ClInclude Include="Core\Src\Console\Console.h" />
     <ClInclude Include="Core\Src\corestd.h" />
     <ClInclude Include="Core\Src\Cpu.h" />
+    <ClInclude Include="Core\Src\Exception.h" />
+    <ClInclude Include="Core\Src\Float4.h" />
     <ClInclude Include="Core\Src\IBidirectionalElement.h" />
     <ClInclude Include="Core\Src\IBidirectionalStruct.h" />
     <ClInclude Include="Core\Src\IElement.h" />
@@ -181,16 +178,19 @@
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h" />
     <ClInclude Include="Gfx\OpenGl\Shader\Shader.h" />
     <ClInclude Include="Input\DirectInput8\DirectInput8.h" />
+    <ClInclude Include="Input\Input.h" />
     <ClInclude Include="Src\testclass.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Lua\Lua.cpp" />
-    <ClCompile Include="Core\Src\Actor.cpp" />
+    <ClCompile Include="Core\Src\Components\Actor.cpp" />
     <ClCompile Include="Core\Src\Components\CollisionComponent.cpp" />
-    <ClCompile Include="Core\Src\Components\Component.cpp" />
-    <ClCompile Include="Core\Src\Components\IComponent.cpp" />
+    <ClCompile Include="Core\Src\Components\InputComponent.cpp" />
+    <ClCompile Include="Core\Src\Components\TransformComponent.cpp" />
     <ClCompile Include="Core\Src\Console\Console.cpp" />
     <ClCompile Include="Core\Src\Cpu.cpp" />
+    <ClCompile Include="Core\Src\Exception.cpp" />
     <ClCompile Include="Core\Src\String.cpp" />
     <ClCompile Include="Core\Src\Threading\Thread.cpp" />
     <ClCompile Include="Core\Src\Threading\ThreadPool.cpp" />
@@ -203,6 +203,7 @@
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp" />
     <ClCompile Include="Gfx\OpenGl\Shader\Shader.cpp" />
     <ClCompile Include="Input\DirectInput8\DirectInput8.cpp" />
+    <ClCompile Include="Input\Input.cpp" />
     <ClCompile Include="Src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

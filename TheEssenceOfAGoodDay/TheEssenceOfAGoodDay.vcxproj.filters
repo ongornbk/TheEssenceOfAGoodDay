@@ -52,8 +52,11 @@
     <Filter Include="Engine\Input\DirectInput8">
       <UniqueIdentifier>{b604dde0-c744-43cd-951a-dc2a3e17728a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Core\Engine">
+      <UniqueIdentifier>{8f8c92f4-a855-4e40-815c-8b2615e027a7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Engine\Core\Components">
-      <UniqueIdentifier>{73009d40-fd26-4819-8363-d864a243ff3c}</UniqueIdentifier>
+      <UniqueIdentifier>{0e661331-7295-4470-946d-3fc2c47b4407}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -108,17 +111,26 @@
     <ClCompile Include="Input\DirectInput8\DirectInput8.cpp">
       <Filter>Engine\Input\DirectInput8</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Engine\Engine.cpp">
+      <Filter>Engine\Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Input.cpp">
+      <Filter>Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\Components\Actor.cpp">
+      <Filter>Engine\Core\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\Components\TransformComponent.cpp">
+      <Filter>Engine\Core\Components</Filter>
+    </ClCompile>
     <ClCompile Include="Core\Src\Components\CollisionComponent.cpp">
       <Filter>Engine\Core\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Src\Actor.cpp">
+    <ClCompile Include="Core\Src\Components\InputComponent.cpp">
+      <Filter>Engine\Core\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\Exception.cpp">
       <Filter>Engine\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Src\Components\Component.cpp">
-      <Filter>Engine\Core\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Src\Components\IComponent.cpp">
-      <Filter>Engine\Core\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -209,32 +221,26 @@
     <ClInclude Include="Core\Src\mmemory.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Src\Actor.h">
-      <Filter>Engine\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Input\DirectInput8\DirectInput8.h">
       <Filter>Engine\Input\DirectInput8</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Src\Components\IComponent.h">
-      <Filter>Engine\Core\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Src\Components\TransformComponent.h">
-      <Filter>Engine\Core\Components</Filter>
     </ClInclude>
     <ClInclude Include="Src\testclass.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Src\Components\CollisionComponent.h">
+    <ClInclude Include="Core\Src\Float4.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Engine.h">
+      <Filter>Engine\Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Input.h">
+      <Filter>Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Src\Components\Actor.h">
       <Filter>Engine\Core\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Src\Components\ComponentsInformation.h">
-      <Filter>Engine\Core\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Src\Components\Component.h">
-      <Filter>Engine\Core\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Src\Components\ComponentsUtilities.h">
-      <Filter>Engine\Core\Components</Filter>
+    <ClInclude Include="Core\Src\Exception.h">
+      <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

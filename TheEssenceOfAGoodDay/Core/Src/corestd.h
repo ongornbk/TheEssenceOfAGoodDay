@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <xmmintrin.h>
 #include <sal.h>
+#include <exception>
 
 #include <Windows.h>
 
@@ -24,6 +25,7 @@ using std::string;
 using std::fstream;
 using std::ifstream;
 using std::vector;
+using std::exception;
 
 typedef signed char        int8;
 typedef signed short       int16;

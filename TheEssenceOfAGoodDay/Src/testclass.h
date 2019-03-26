@@ -1,16 +1,23 @@
 #pragma once
-#include "..\Core\Src\Actor.h"
-#include "..\Core\Src\Components\TransformComponent.h"
+#include "..\Core\Src\Components\Actor.h"
 
 class Testclass : public Actor
 {
-	TransformComponent* m_position;
+	Components::TransformComponent* m_position;
+	Components::CollisionComponent* m_collision;
+	Components::InputComponent*     m_input;
 
 public:
 
 	Testclass()
 	{
-		m_position = CreateComponent<TransformComponent>(this);
+		m_position = CreateComponent<Components::TransformComponent>(this);
+		m_collision = CreateComponent<Components::CollisionComponent>(this);
+		m_input = CreateComponent<Components::InputComponent>(this);
+
+		m_collision->radius = 10.f;
+
+		InitializeComponents();
 	}
 
 	~Testclass()
@@ -34,6 +41,5 @@ public:
 	{
 
 	}
-
 
 };

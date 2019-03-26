@@ -1,8 +1,14 @@
-#include "CollisionComponent.h"
-//#include "ComponentsUtilities.h"
+#include "Actor.h"
 
-//void CollisionComponent::Initialize()
-//{
-//	IComponent* transform = parent->GetComponent(ComponentType::TRANSFORM_COMPONENT_TYPE);
-//	position = &(component_cast<TransformComponent>(transform))->position;
-//}
+void Components::CollisionComponent::Initialize()
+{
+	IComponent* transform = (IComponent*)parent->GetComponent(ComponentType::TRANSFORM_COMPONENT_TYPE);
+	if(transform)
+	position = &(component_cast<TransformComponent>(transform))->position;
+	else throw(exception("Exception at Components::CollisionComponent::Initialize -> No TransformComponent!"));
+}
+
+ComponentType Components::CollisionComponent::GetType() const noexcept
+{
+	return ComponentType::COLLISION_COMPONENT_TYPE;
+}

@@ -1,5 +1,31 @@
-﻿  CollisionComponent.cpp
-d:\theessenceofagoodday\theessenceofagoodday\core\src\components\collisioncomponent.h(23): error C3646: 'GetType': unknown override specifier
-d:\theessenceofagoodday\theessenceofagoodday\core\src\components\collisioncomponent.h(23): error C2059: syntax error: ')'
-d:\theessenceofagoodday\theessenceofagoodday\core\src\components\collisioncomponent.h(24): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-d:\theessenceofagoodday\theessenceofagoodday\core\src\components\collisioncomponent.cpp(9): fatal error C1004: unexpected end-of-file found
+﻿  Engine.cpp
+  c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Lua.cpp
+  Actor.cpp
+  CollisionComponent.cpp
+  InputComponent.cpp
+  c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  TransformComponent.cpp
+  Console.cpp
+  Cpu.cpp
+  Exception.cpp
+  String.cpp
+  Thread.cpp
+  ThreadPool.cpp
+  ThreadPoolHandle.cpp
+  WinApiWindow.cpp
+  DirectX11.cpp
+  DirectX11Window.cpp
+  IGraphics.cpp
+  OpenGL.cpp
+  OpenGlWindow.cpp
+  Shader.cpp
+  Generating Code...
+  Compiling...
+  DirectInput8.cpp
+  c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Input.cpp
+  main.cpp
+  Generating Code...
+MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+  TheEssenceOfAGoodDay.vcxproj -> D:\TheEssenceOfAGoodDay\x64\Debug\TheEssenceOfAGoodDay.exe
