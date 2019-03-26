@@ -23,7 +23,6 @@ DirectX11::~DirectX11(void)
 		m_swapChain->SetFullscreenState(false, nullptr);
 	}
 
-
 	safe_release(m_alphaBlendingState[0]);
 	safe_release(m_alphaBlendingState[1]);
 	safe_release(m_device);

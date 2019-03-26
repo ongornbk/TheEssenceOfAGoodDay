@@ -1,15 +1,5 @@
-﻿  Lua.cpp
-  Console.cpp
-  String.cpp
-  ThreadPool.cpp
-  ThreadPoolHandle.cpp
-  WinApiWindow.cpp
-  DirectX11.cpp
-  DirectX11Window.cpp
-  IGraphics.cpp
-  OpenGL.cpp
-  OpenGlWindow.cpp
-  Shader.cpp
-  main.cpp
-  Generating Code...
-  TheEssenceOfAGoodDay.vcxproj -> D:\TheEssenceOfAGoodDay\x64\Debug\TheEssenceOfAGoodDay.exe
+﻿  CollisionComponent.cpp
+d:\theessenceofagoodday\theessenceofagoodday\core\src\components\collisioncomponent.h(23): error C3646: 'GetType': unknown override specifier
+d:\theessenceofagoodday\theessenceofagoodday\core\src\components\collisioncomponent.h(23): error C2059: syntax error: ')'
+d:\theessenceofagoodday\theessenceofagoodday\core\src\components\collisioncomponent.h(24): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+d:\theessenceofagoodday\theessenceofagoodday\core\src\components\collisioncomponent.cpp(9): fatal error C1004: unexpected end-of-file found
