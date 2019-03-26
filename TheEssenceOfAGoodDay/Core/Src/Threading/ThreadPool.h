@@ -20,11 +20,12 @@ class ThreadPool
 
 	
 
-	bool                 _running;
+	atomic<bool>         _running;
 	Queue<Task>          _taskQueue;
 	atomic<size_t>       _taskNum;
 	mutex                _mutex;
-	Array<Thread*>       _threads;
+	condition_variable   _cv;
+	vector<Thread>       _threads;
 
 public:
 	ThreadPool(size_t num_threads = std::thread::hardware_concurrency());

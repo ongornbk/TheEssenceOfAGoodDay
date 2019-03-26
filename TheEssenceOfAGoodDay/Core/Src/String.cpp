@@ -1,4 +1,5 @@
 #include "String.h"
+#include <cctype>
 
 String::String()
 {
@@ -75,6 +76,11 @@ bool String::to_bool()
 	if (strcmp("true",text.c_str()))
 		return false;
 	return true;
+}
+
+bool String::is_digit() const
+{
+		return !text.empty() && std::find_if(text.begin(), text.end(), [](char c) { return !std::isdigit(c); }) == text.end();
 }
 
 String& String::operator=(const String& str)

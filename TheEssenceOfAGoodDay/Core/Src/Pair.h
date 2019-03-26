@@ -1,5 +1,5 @@
 #pragma once
-#include "corestd.h"
+#include "mmemory.h"
 #include <type_traits>
 
 template <class A,class B>

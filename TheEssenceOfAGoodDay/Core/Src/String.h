@@ -27,6 +27,7 @@ public:
 	int32 to_int32();
 
 	bool to_bool();
+	bool is_digit() const;
 
 	String& operator = (const String& str);
 

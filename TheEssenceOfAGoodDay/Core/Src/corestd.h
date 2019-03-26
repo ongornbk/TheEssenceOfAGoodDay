@@ -8,8 +8,8 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include <sal.h>
 #include <algorithm>
+#include <sal.h>
 
 #include <Windows.h>
 
@@ -18,6 +18,7 @@ using std::mutex;
 using std::lock_guard;
 using std::unique_lock;
 using std::shared_mutex;
+using std::condition_variable;
 using std::string;
 using std::fstream;
 using std::ifstream;
@@ -56,11 +57,7 @@ inline void safe_release(T& ptr)
 	}
 }
 
-template <class _Out_ ReturnType, class _In_ Type>
-inline ReturnType& memory_cast(const Type& obj)
-{
-	return *(ReturnType*)(obj);
-}
+
 
 class UInteger32
 {
@@ -70,6 +67,10 @@ public:
 		return 0xFFFFFFFF;
 	}
 };
+
+
+
+
 
 #define endl String('\n')
 #define CONSOLE_NAME "The Essence Of A Good Day"

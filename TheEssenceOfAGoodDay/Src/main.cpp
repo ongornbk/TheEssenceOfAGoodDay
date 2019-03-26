@@ -1,6 +1,6 @@
 #include "..\Core\Src\Console\Console.h"
 #include "..\Core\Src\List.h"
-
+#include "..\Core\Src\Array.h"
 
 
 
@@ -29,12 +29,19 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	
 	//safe_delete(lua);
 
+	Array<int32> vec;
 
+	for (auto i = 0; i < 10; i++)
+		vec.push_back(i);
 
 
 	ConsoleHandle con;
 
-
+	for(auto i : vec)
+	{
+		con < i;
+		con < endl;
+	}
 
 	con < String("Press Any Key To Exit...");
 	con << endl;

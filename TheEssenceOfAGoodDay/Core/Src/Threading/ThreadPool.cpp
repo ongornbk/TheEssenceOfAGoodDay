@@ -7,8 +7,8 @@ static void _cdecl ThreadLoop(void* pt)
 	ThreadPool* pool = (ThreadPool*)pt;
 
 
-	while (pool->_running) {
-		pool->_mutex.lock();
+	while (pool->_running.load()) {
+		unique_lock <mutex> lk(pool->_mutex);
 		if (!pool->_taskQueue.empty()) {
 			Task task = pool->_taskQueue.get();
 			pool->_taskQueue.pop();
@@ -17,18 +17,18 @@ static void _cdecl ThreadLoop(void* pt)
 			pool->_taskNum--;
 		}
 		else {
-			pool->_mutex.unlock();
-			std::this_thread::yield();
+			pool->_cv.wait(lk);
 		}
 	}
 }
 
-ThreadPool::ThreadPool(size_t num_threads) : _running(true), _taskNum(0)
+ThreadPool::ThreadPool(size_t num_threads) : _taskNum(0)
 {
+	_running.store(true);
 	m_instance = this;
 	_threads.reserve(num_threads);
 	for (size_t i = 0; i < num_threads; i++) {
-		Thread* t = new Thread(ThreadLoop, NULL, this);
+		_threads.push_back(Thread(ThreadLoop, NULL, this));
 	}
 
 }
@@ -36,15 +36,9 @@ ThreadPool::ThreadPool(size_t num_threads) : _running(true), _taskNum(0)
 	ThreadPool::~ThreadPool()
 {
 		m_instance = nullptr;
-		_running = false;
-		for (auto&& t : _threads) {
-			if (t)
-			{
-				t->join();
-				delete t;
-				t = nullptr;
-			}
-		}
+		_running.store(false);
+		_cv.notify_all();
+		for (auto&& t : _threads) t.join();
 }
 
 void ThreadPool::push(Function work)
@@ -53,10 +47,10 @@ void ThreadPool::push(Function work)
 	task.foo = work;
 	task.arg = nullptr;
 
-		_mutex.lock();
+	unique_lock<mutex> lk(_mutex);
 		_taskQueue.push(task);
 		_taskNum++;
-		_mutex.unlock();
+		_cv.notify_one();
 }
 
 void ThreadPool::push(Function work,void* argument)
@@ -65,17 +59,16 @@ void ThreadPool::push(Function work,void* argument)
 	task.foo = work;
 	task.arg = argument;
 
-	_mutex.lock();
+	unique_lock<mutex> lk(_mutex);
 	_taskQueue.push(task);
 	_taskNum++;
-	_mutex.unlock();
+	_cv.notify_one();
 }
 
 void ThreadPool::clear()
 {
-	_mutex.lock();
+	unique_lock<mutex> lk(_mutex);
 	_taskNum -= _taskQueue.size();
-	_mutex.unlock();
 }
 
 void ThreadPool::wait()
