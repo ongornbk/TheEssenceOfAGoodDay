@@ -1,9 +1,20 @@
 #include "..\Core\Src\Console\Console.h"
 #include "..\Core\Src\List.h"
 #include "..\Core\Src\Array.h"
+#include "..\Core\Engine\Engine.h"
+#include "..\Core\Src\Threading\Thread.h"
+#include "..\Gfx\OpenGl\OpenGlWindow.h"
+#include "..\Gfx\DirectX11\DirectX11Window.h"
 #include "testclass.h"
 
+Engine engine;
+Testclass tsc;
 
+static void _stdcall ddd(void)
+{
+	engine.Update();
+	tsc.Tick();
+}
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
@@ -30,21 +41,20 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	
 	//safe_delete(lua);
 
+	WinApiWindow* window = new WinApiWindow();
+
+	window->Initialize(800, 600, String("Glw"), false);
+
+	engine.Initialize(window);
+
+	window->SetCallbackFunction(ddd);
+
+
+
 
 	ConsoleHandle con;
 
-	Testclass tsc;
-
-	con < String("Press Any Key To Exit...");
-	con << endl;
-	con.pause();
-
-	//auto a = threads[String("dx")];
-	//if (a) a->join();
-
-	//con.pause();
-
-	//threads.release();
+	window->Update();
 
 	return 0;
 }

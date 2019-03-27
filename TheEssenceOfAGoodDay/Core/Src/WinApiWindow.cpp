@@ -40,16 +40,16 @@ int32 WinApiWindow::Initialize(int32 width, int32 height, String title,bool full
 		return 1;
 	}
 
-	int32 screenWidth = GetSystemMetrics(SM_CXSCREEN);
-	int32 screenHeight = GetSystemMetrics(SM_CYSCREEN);
+	m_screenWidth = GetSystemMetrics(SM_CXSCREEN);
+	m_screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
 	if (fullscreen)
 	{
 		DEVMODE dmScreenSettings;
 		memset(&dmScreenSettings, 0, sizeof(dmScreenSettings));
 		dmScreenSettings.dmSize = sizeof(dmScreenSettings);
-		dmScreenSettings.dmPelsWidth = (uint32)screenWidth;
-		dmScreenSettings.dmPelsHeight = (uint32)screenHeight;
+		dmScreenSettings.dmPelsWidth = (uint32)m_screenWidth;
+		dmScreenSettings.dmPelsHeight = (uint32)m_screenHeight;
 		dmScreenSettings.dmBitsPerPel = 32;
 		dmScreenSettings.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
 
@@ -57,16 +57,16 @@ int32 WinApiWindow::Initialize(int32 width, int32 height, String title,bool full
 	}
 	else
 	{
-		screenWidth = width;
-		screenHeight = height;
+		m_screenWidth = width;
+		m_screenHeight = height;
 	}
 
 	int32 nStyle = WS_OVERLAPPED | WS_SYSMENU | WS_VISIBLE | WS_CAPTION | WS_MINIMIZEBOX;
 
-	const int32 xce = (screenWidth - width) / 2;
-	const int32 yce = (screenHeight - height) / 2;
+	const int32 xce = (m_screenWidth - width) / 2;
+	const int32 yce = (m_screenHeight - height) / 2;
 
-	m_hwnd = CreateWindowEx(WS_EX_APPWINDOW, windowName.c_str(), windowName.c_str(), nStyle, xce, yce, screenWidth, screenHeight, NULL, NULL, m_hInstance, NULL);
+	m_hwnd = CreateWindowEx(WS_EX_APPWINDOW, windowName.c_str(), windowName.c_str(), nStyle, xce, yce, m_screenWidth, m_screenHeight, NULL, NULL, m_hInstance, NULL);
 
 	if (m_hwnd == NULL)
 	{
@@ -97,8 +97,7 @@ int32 WinApiWindow::Update()
 		}
 		else
 		{
-			//ipp::Timer::Update();
-			//Engine::GetEngine()->Run();
+			if (m_callback) m_callback();
 		}
 	}
 
@@ -108,4 +107,19 @@ int32 WinApiWindow::Update()
 	}
 
 	return 0;
+}
+
+int32 WinApiWindow::GetWidth() const noexcept
+{
+	return m_screenWidth;
+}
+int32 WinApiWindow::GetHeight() const noexcept
+{
+	return m_screenHeight;
+}
+
+void WinApiWindow::SetCallbackFunction(void(__stdcall* callback)(void))
+{
+	assert(callback);
+	m_callback = callback;
 }

@@ -196,6 +196,7 @@
     <ClCompile Include="Core\Src\Threading\ThreadPool.cpp" />
     <ClCompile Include="Core\Src\Threading\ThreadPoolHandle.cpp" />
     <ClCompile Include="Core\Src\WinApiWindow.cpp" />
+    <ClCompile Include="Core\Src\Window.cpp" />
     <ClCompile Include="Gfx\DirectX11\DirectX11.cpp" />
     <ClCompile Include="Gfx\DirectX11\DirectX11Window.cpp" />
     <ClCompile Include="Gfx\IGraphics.cpp" />

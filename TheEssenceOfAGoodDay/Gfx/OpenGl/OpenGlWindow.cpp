@@ -23,8 +23,10 @@ int32 OpenGlWindow::Initialize(int32 width, int32 height,String title,bool fulls
 int32 OpenGlWindow::Update()
 {
 
+	int32 result{};
 
-	while (!glfwWindowShouldClose(m_window))
+	result = glfwWindowShouldClose(m_window);
+	if(!result)
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 
@@ -38,9 +40,19 @@ int32 OpenGlWindow::Update()
 	
 		glfwPollEvents();
 	}
-	
-	glfwTerminate();
+	else
+	{
+		glfwTerminate();
+	}
+	return result;
 
-	return 0;
+}
 
+int32 OpenGlWindow::GetWidth() const noexcept
+{
+	return m_screenWidth;
+}
+int32 OpenGlWindow::GetHeight() const noexcept
+{
+	return m_screenHeight;
 }

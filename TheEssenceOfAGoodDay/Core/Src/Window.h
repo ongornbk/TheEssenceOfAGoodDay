@@ -12,6 +12,12 @@ public:
 	virtual int32 Initialize(int32 width, int32 height,String title,bool fullscreen = false) = 0;
 	virtual int32 Update() = 0;
 
+	virtual HINSTANCE GetHinstance() const noexcept;
+	virtual HWND      GetHWND() const noexcept;
+	virtual HDC       GetHDC() const noexcept;
+	virtual int32     GetWidth() const noexcept = 0;
+	virtual int32     GetHeight() const noexcept = 0;
+
 protected:
 
 	HINSTANCE m_hInstance{};
