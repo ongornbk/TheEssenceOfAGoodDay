@@ -3,13 +3,15 @@
 #include "..\Array.h"
 #include "..\..\..\Gfx\DirectX11\dx11.h"
 #include "..\..\..\Input\Input.h"
+#include "..\..\..\Gfx\DirectX11\Sprite.h"
+#include "..\..\Engine\Resources\ResourceHandle.h"
 
 	enum ComponentType
 	{
 		TRANSFORM_COMPONENT_TYPE,
 		COLLISION_COMPONENT_TYPE,
 		INPUT_COMPONENT_TYPE,
-		CAMERA_COMPONENT
+		SPRITE_COMPONENT_TYPE
 	};
 
 	template <class T>
@@ -127,6 +129,25 @@ namespace Components
 	protected:
 
 		Input* input;
+
+	};
+
+	class SpriteComponent : public IComponent
+	{
+	public:
+
+		SpriteComponent(Actor* par);
+
+		~SpriteComponent();
+
+		void Initialize() override;
+
+		ComponentType GetType() const noexcept override;
+
+	protected:
+
+		Sprite sprite;
+		ResourceHandle* shaderHandle{};
 
 	};
 

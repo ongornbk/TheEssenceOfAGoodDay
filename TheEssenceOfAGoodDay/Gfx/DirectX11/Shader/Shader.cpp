@@ -70,7 +70,6 @@ Shader::Shader(Shader & shader)
 
 Shader::~Shader(void)
 {
-	
 	safe_release(m_matrixBuffer);
 	safe_release(m_cameraBuffer);
 	safe_release(m_layout);

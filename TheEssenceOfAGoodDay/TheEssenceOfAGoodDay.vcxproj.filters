@@ -64,6 +64,9 @@
     <Filter Include="Engine\Core\Engine\Resources">
       <UniqueIdentifier>{810fe58b-cc09-4446-9c46-914608d2fbd3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Gfx\DirectX11\HLSL">
+      <UniqueIdentifier>{580a5690-5cb4-4d7d-8338-470262a89b61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="CommandPrompt.qpp" />
@@ -150,8 +153,26 @@
     <ClCompile Include="Gfx\DirectX11\Shader\Shader.cpp">
       <Filter>Engine\Gfx\DirectX11\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="Gfx\DirectX11\Shader\ShaderHandle.cpp">
+    <ClCompile Include="Gfx\DirectX11\Shader\TextureShader.cpp">
       <Filter>Engine\Gfx\DirectX11\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Gfx\DirectX11\WICTextureLoader.cpp">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="Gfx\DirectX11\Texture.cpp">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Resources\ResourceHandle.cpp">
+      <Filter>Engine\Core\Engine\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Gfx\DirectX11\VertexBuffer.cpp">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="Gfx\DirectX11\Sprite.cpp">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\Components\SpriteComponent.cpp">
+      <Filter>Engine\Core\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -272,8 +293,35 @@
     <ClInclude Include="Gfx\DirectX11\Shader\Shader.h">
       <Filter>Engine\Gfx\DirectX11\Shader</Filter>
     </ClInclude>
-    <ClInclude Include="Gfx\DirectX11\Shader\ShaderHandle.h">
+    <ClInclude Include="Gfx\DirectX11\Shader\TextureShader.h">
       <Filter>Engine\Gfx\DirectX11\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\DirectX11\DirectXHelpers.h">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\DirectX11\pch.h">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\DirectX11\WICTextureLoader.h">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\DirectX11\PlatformHelper.h">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\DirectX11\Texture.h">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Resources\ResourceHandle.h">
+      <Filter>Engine\Core\Engine\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\DirectX11\VertexBuffer.h">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\DirectX11\Vertex.h">
+      <Filter>Engine\Gfx\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\DirectX11\Sprite.h">
+      <Filter>Engine\Gfx\DirectX11</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -282,5 +330,10 @@
     <CopyFileToFolders Include="Core\Lua\Luas\test.lua">
       <Filter>Engine\Core\Lua\Scripts</Filter>
     </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Gfx\DirectX11\HLSL\texture.fx">
+      <Filter>Engine\Gfx\DirectX11\HLSL</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
