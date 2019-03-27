@@ -1,4 +1,12 @@
-﻿  Actor.cpp
+﻿  Engine.cpp
+  Actor.cpp
+  CollisionComponent.cpp
+  InputComponent.cpp
+  TransformComponent.cpp
+  DirectInput8.cpp
+  Input.cpp
+  main.cpp
+  Generating Code...
   LINK : D:\TheEssenceOfAGoodDay\x64\Debug\TheEssenceOfAGoodDay.exe not found or not built by the last incremental link; performing full link
 MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
   TheEssenceOfAGoodDay.vcxproj -> D:\TheEssenceOfAGoodDay\x64\Debug\TheEssenceOfAGoodDay.exe

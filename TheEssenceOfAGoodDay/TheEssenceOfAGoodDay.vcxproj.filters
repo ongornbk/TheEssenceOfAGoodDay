@@ -132,6 +132,9 @@
     <ClCompile Include="Core\Src\Exception.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Src\Window.cpp">
+      <Filter>Engine\Core\Framework</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Src\corestd.h">

@@ -19,3 +19,9 @@ public:
 	virtual BYTE GetMouseState(const int32 index) const noexcept = 0;
 	virtual bool GetMousePressed(const int32 index) const noexcept = 0;
 };
+
+enum MouseButton
+{
+	MOUSE_LEFT_BUTTON = 0,
+	MOUSE_RIGHT_BUTTON = 1
+};

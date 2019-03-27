@@ -122,6 +122,8 @@ namespace Components
 
 		ComponentType GetType() const noexcept override;
 
+		bool MouseButtonPressed(const MouseButton button) const noexcept;
+
 	protected:
 
 		Input* input;

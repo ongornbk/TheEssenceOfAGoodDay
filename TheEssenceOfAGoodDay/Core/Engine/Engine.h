@@ -1,5 +1,6 @@
 #pragma once
 #include "..\..\Input\DirectInput8\DirectInput8.h"
+#include "..\Src\Window.h"
 
 class Engine
 {
@@ -7,6 +8,9 @@ public:
 
 	Engine();
 	~Engine();
+
+	void Initialize(const Window* window);
+	void Update();
 
 	static Engine* GetInstance();
 
