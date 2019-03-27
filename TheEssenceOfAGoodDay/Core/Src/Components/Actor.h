@@ -35,6 +35,7 @@ protected:
 	Array<void*> m_components;
 
 	void InitializeComponents();
+	void ReleaseComponents();
 
 	template <class T>
 	friend  T* CreateComponent(Actor* par);
