@@ -1,5 +1,6 @@
 #pragma once
 #include "..\..\Input\DirectInput8\DirectInput8.h"
+#include "ResourceManager.h"
 #include "..\Src\Window.h"
 
 class Engine
@@ -19,4 +20,6 @@ public:
 private:
 
 	Input* input;
+
+	ResourceManager resources;
 };

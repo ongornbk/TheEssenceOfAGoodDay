@@ -19,6 +19,8 @@ struct Node
 		safe_delete(right);
 	}
 
+
+
 	void operator =(const T t)
 	{
 		data = t;

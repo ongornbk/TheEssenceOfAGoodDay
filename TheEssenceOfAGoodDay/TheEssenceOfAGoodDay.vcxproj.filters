@@ -58,6 +58,12 @@
     <Filter Include="Engine\Core\Components">
       <UniqueIdentifier>{0e661331-7295-4470-946d-3fc2c47b4407}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Gfx\DirectX11\Shader">
+      <UniqueIdentifier>{8e36f621-2bbe-49a2-b03b-8b8ef027b9f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core\Engine\Resources">
+      <UniqueIdentifier>{810fe58b-cc09-4446-9c46-914608d2fbd3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="CommandPrompt.qpp" />
@@ -92,9 +98,6 @@
     </ClCompile>
     <ClCompile Include="Gfx\OpenGl\OpenGL.cpp">
       <Filter>Engine\Gfx\OpenGl</Filter>
-    </ClCompile>
-    <ClCompile Include="Gfx\OpenGl\Shader\Shader.cpp">
-      <Filter>Engine\Gfx\OpenGl\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Gfx\DirectX11\DirectX11.cpp">
       <Filter>Engine\Gfx\DirectX11</Filter>
@@ -134,6 +137,21 @@
     </ClCompile>
     <ClCompile Include="Core\Src\Window.cpp">
       <Filter>Engine\Core\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ResourceManager.cpp">
+      <Filter>Engine\Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Resources\IResource.cpp">
+      <Filter>Engine\Core\Engine\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Resources\ShaderResource.cpp">
+      <Filter>Engine\Core\Engine\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Gfx\DirectX11\Shader\Shader.cpp">
+      <Filter>Engine\Gfx\DirectX11\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Gfx\DirectX11\Shader\ShaderHandle.cpp">
+      <Filter>Engine\Gfx\DirectX11\Shader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -184,9 +202,6 @@
     </ClInclude>
     <ClInclude Include="Gfx\OpenGl\OpenGL.h">
       <Filter>Engine\Gfx\OpenGl</Filter>
-    </ClInclude>
-    <ClInclude Include="Gfx\OpenGl\Shader\Shader.h">
-      <Filter>Engine\Gfx\OpenGl\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Gfx\DirectX11\DirectX11.h">
       <Filter>Engine\Gfx\DirectX11</Filter>
@@ -244,6 +259,21 @@
     </ClInclude>
     <ClInclude Include="Core\Src\Exception.h">
       <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\ResourceManager.h">
+      <Filter>Engine\Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Resources\IResource.h">
+      <Filter>Engine\Core\Engine\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Resources\ShaderResource.h">
+      <Filter>Engine\Core\Engine\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\DirectX11\Shader\Shader.h">
+      <Filter>Engine\Gfx\DirectX11\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Gfx\DirectX11\Shader\ShaderHandle.h">
+      <Filter>Engine\Gfx\DirectX11\Shader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
