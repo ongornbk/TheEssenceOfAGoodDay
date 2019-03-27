@@ -102,6 +102,42 @@ public:
 		else return node;
 	}
 
+	Node<T>*& find(const T element, bool(_cdecl* foo)(const T& A, const T& B))
+	{
+#ifdef BINARYTREE_DEBUG
+		{
+			ConsoleHandle con;
+			con < "Node<T>* find(const T element,bool(_cdecl* foo)(const T& A, const T& B)) ::: CALLED";
+			con < endl;
+			con < "element = ";
+			con.format("%016llX");
+			con < memory_cast<uint64>(&element);
+			con.format();
+			con < " node = ";
+			con.format("%016llX");
+			con < memory_cast<uint64>(&node);
+			con.format();
+			con < " foo = ";
+			con.format("%016llX");
+			con < memory_cast<uint64>(foo);
+			con.format();
+			con << endl;
+		}
+#endif // BINARYTREE_DEBUG
+
+
+		if (root != nullptr)
+		{
+			if (foo(element, root->data))
+				return root;
+			if (m_foo(element, root->data))
+				return find(element, root->left, foo);
+			else
+				return find(element, root->right, foo);
+		}
+		else return root;
+	}
+
 	Node<T>*& find(const T element, Node<T>* &node,bool(_cdecl* foo)(const T& A, const T& B))
 	{
 #ifdef BINARYTREE_DEBUG
