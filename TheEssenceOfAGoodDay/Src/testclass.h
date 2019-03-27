@@ -22,7 +22,7 @@ public:
 
 	~Testclass()
 	{
-		safe_delete(m_position);
+		ReleaseComponents();
 	}
 
 	void Render()
