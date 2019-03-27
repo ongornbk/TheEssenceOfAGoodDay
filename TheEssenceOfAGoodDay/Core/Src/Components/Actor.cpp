@@ -1,6 +1,6 @@
 #include "Actor.h"
 
-void* Actor::GetComponent(const ComponentType type)
+Handle Actor::GetComponent(const ComponentType type)
 {
 	for (auto component : m_components)
 	{

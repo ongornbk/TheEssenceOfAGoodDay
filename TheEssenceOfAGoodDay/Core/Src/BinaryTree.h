@@ -20,15 +20,29 @@ protected:
 
 	uint32 __size = 0u;
 
+
+
 public:
+
+	BinaryTree()
+	{
+
+	}
 
 	BinaryTree(bool(_cdecl* foo)(const T& A, const T& B)) : m_foo(foo)
 	{ 
 		assert(foo);
 	}
+
 	virtual  ~BinaryTree()
 	{
-		safe_delete(root);
+			safe_delete(root);	
+	}
+
+	void SetFoo(bool(_cdecl* foo)(const T& A, const T& B))
+	{
+		assert(foo);
+		m_foo = foo;
 	}
 
 	void push(const T element)

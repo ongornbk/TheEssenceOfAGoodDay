@@ -18,6 +18,11 @@ struct Pair
 
 	Pair(A a, B b) : first(a), second(b) {}
 
+	~Pair()
+	{
+
+	}
+
 	bool operator ==(const Pair<A, B>& b) const
 	{
 		return (this->first == b.first) && (this->second == b.second);

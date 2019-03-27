@@ -1,7 +1,7 @@
 #pragma once
 #include "..\mmemory.h"
 #include "..\Array.h"
-#include "..\Float4.h"
+#include "..\..\..\Gfx\DirectX11\dx11.h"
 #include "..\..\..\Input\Input.h"
 
 	enum ComponentType
@@ -13,7 +13,7 @@
 	};
 
 	template <class T>
-	inline T* component_cast(void* component)
+	inline T* component_cast(Handle component)
 	{
 		return (T*)(component);
 	}
@@ -28,11 +28,11 @@ public:
 	virtual void        Release() = 0;
 	virtual void        BeginOverlap(const Actor* second) = 0;
 
-	void* GetComponent(const ComponentType type);
+	Handle GetComponent(const ComponentType type);
 
 protected:
 
-	Array<void*> m_components;
+	Array<Handle> m_components;
 
 	void InitializeComponents();
 	void ReleaseComponents();
@@ -77,9 +77,9 @@ namespace Components
 	{
 	public:
 
-		Float4 position{};
-		Float4 rotation{};
-		Float4 scale{};
+		DirectX::XMFLOAT4 position{};
+		DirectX::XMFLOAT4 rotation{};
+		DirectX::XMFLOAT4 scale{};
 
 		TransformComponent(Actor* par) : IComponent(par) {}
 		~TransformComponent() {}
@@ -96,7 +96,7 @@ namespace Components
 
 		float radius{};
 
-		Float4* position{};
+		DirectX::XMFLOAT4* position{};
 
 		CollisionComponent(Actor* par) : IComponent(par) {}
 

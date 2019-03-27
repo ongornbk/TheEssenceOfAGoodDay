@@ -1,12 +1,6 @@
 #pragma once
 #include "..\IGraphics.h"
-
-#include <d3d11_2.h>
-#include <directxmath.h>
-#include <directxcolors.h>
-
-#pragma comment (lib, "d3d11.lib")
-#pragma comment (lib, "dxgi.lib")
+#include "dx11.h"
 
 class DirectX11 : public IGraphics
 {

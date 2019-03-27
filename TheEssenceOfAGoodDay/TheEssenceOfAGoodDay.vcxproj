@@ -145,6 +145,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h" />
+    <ClInclude Include="Core\Engine\ResourceManager.h" />
+    <ClInclude Include="Core\Engine\Resources\IResource.h" />
+    <ClInclude Include="Core\Engine\Resources\ShaderResource.h" />
     <ClInclude Include="Core\Lua\Lua.h" />
     <ClInclude Include="Core\Lua\LuaPointer.h" />
     <ClInclude Include="Core\Src\Components\Actor.h" />
@@ -173,16 +176,20 @@
     <ClInclude Include="Core\Src\Window.h" />
     <ClInclude Include="Gfx\DirectX11\DirectX11.h" />
     <ClInclude Include="Gfx\DirectX11\DirectX11Window.h" />
+    <ClInclude Include="Gfx\DirectX11\Shader\Shader.h" />
+    <ClInclude Include="Gfx\DirectX11\Shader\ShaderHandle.h" />
     <ClInclude Include="Gfx\IGraphics.h" />
     <ClInclude Include="Gfx\OpenGl\OpenGL.h" />
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h" />
-    <ClInclude Include="Gfx\OpenGl\Shader\Shader.h" />
     <ClInclude Include="Input\DirectInput8\DirectInput8.h" />
     <ClInclude Include="Input\Input.h" />
     <ClInclude Include="Src\testclass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp" />
+    <ClCompile Include="Core\Engine\ResourceManager.cpp" />
+    <ClCompile Include="Core\Engine\Resources\IResource.cpp" />
+    <ClCompile Include="Core\Engine\Resources\ShaderResource.cpp" />
     <ClCompile Include="Core\Lua\Lua.cpp" />
     <ClCompile Include="Core\Src\Components\Actor.cpp" />
     <ClCompile Include="Core\Src\Components\CollisionComponent.cpp" />
@@ -199,10 +206,11 @@
     <ClCompile Include="Core\Src\Window.cpp" />
     <ClCompile Include="Gfx\DirectX11\DirectX11.cpp" />
     <ClCompile Include="Gfx\DirectX11\DirectX11Window.cpp" />
+    <ClCompile Include="Gfx\DirectX11\Shader\Shader.cpp" />
+    <ClCompile Include="Gfx\DirectX11\Shader\ShaderHandle.cpp" />
     <ClCompile Include="Gfx\IGraphics.cpp" />
     <ClCompile Include="Gfx\OpenGl\OpenGL.cpp" />
     <ClCompile Include="Gfx\OpenGl\OpenGlWindow.cpp" />
-    <ClCompile Include="Gfx\OpenGl\Shader\Shader.cpp" />
     <ClCompile Include="Input\DirectInput8\DirectInput8.cpp" />
     <ClCompile Include="Input\Input.cpp" />
     <ClCompile Include="Src\main.cpp" />

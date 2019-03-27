@@ -15,6 +15,7 @@
 
 #include <Windows.h>
 
+#pragma region
 using std::atomic;
 using std::mutex;
 using std::lock_guard;
@@ -22,11 +23,15 @@ using std::unique_lock;
 using std::shared_mutex;
 using std::condition_variable;
 using std::string;
+using std::wstring;
 using std::fstream;
 using std::ifstream;
+using std::ofstream;
 using std::vector;
 using std::exception;
+#pragma endregion
 
+#pragma region
 typedef signed char        int8;
 typedef signed short       int16;
 typedef signed long        int32;
@@ -39,7 +44,9 @@ typedef unsigned long long uint64;
 
 typedef void*              Handle;
 typedef void(__cdecl*      Function)(void*);
+#pragma endregion
 
+#pragma region
 template <class T>
 inline void safe_delete(T& ptr)
 {
@@ -61,7 +68,17 @@ inline void safe_release(T& ptr)
 }
 
 
+template <class T>
+inline void release(T& ptr)
+{
+	assert(ptr);
+	ptr->Release();
+	ptr = nullptr;
+}
+#pragma endregion
 
+
+#pragma region
 class UInteger32
 {
 public:
@@ -70,6 +87,7 @@ public:
 		return 0xFFFFFFFF;
 	}
 };
+#pragma endregion
 
 
 
