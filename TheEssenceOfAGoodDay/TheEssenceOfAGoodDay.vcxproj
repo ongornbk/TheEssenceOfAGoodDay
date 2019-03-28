@@ -149,6 +149,7 @@
     <ClInclude Include="Core\Engine\Resources\IResource.h" />
     <ClInclude Include="Core\Engine\Resources\ResourceHandle.h" />
     <ClInclude Include="Core\Engine\Resources\ShaderResource.h" />
+    <ClInclude Include="Core\Engine\Resources\TextureResource.h" />
     <ClInclude Include="Core\Lua\Lua.h" />
     <ClInclude Include="Core\Lua\LuaPointer.h" />
     <ClInclude Include="Core\Src\Components\Actor.h" />
@@ -200,8 +201,10 @@
     <ClCompile Include="Core\Engine\Resources\IResource.cpp" />
     <ClCompile Include="Core\Engine\Resources\ResourceHandle.cpp" />
     <ClCompile Include="Core\Engine\Resources\ShaderResource.cpp" />
+    <ClCompile Include="Core\Engine\Resources\TextureResource.cpp" />
     <ClCompile Include="Core\Lua\Lua.cpp" />
     <ClCompile Include="Core\Src\Components\Actor.cpp" />
+    <ClCompile Include="Core\Src\Components\CameraComponent.cpp" />
     <ClCompile Include="Core\Src\Components\CollisionComponent.cpp" />
     <ClCompile Include="Core\Src\Components\InputComponent.cpp" />
     <ClCompile Include="Core\Src\Components\SpriteComponent.cpp" />

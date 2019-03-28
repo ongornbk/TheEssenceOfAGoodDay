@@ -14,8 +14,9 @@ public:
 	void Initialize(const Window* window);
 	void Update();
 
-	static Engine* GetInstance();
-	ID3D11Device* GetDevice();
+	static Engine*       GetInstance();
+	ID3D11Device*        GetDevice();
+	ID3D11DeviceContext* GetDeviceContext();
 	HWND          GetHWND() const noexcept;
 
 	Input* GetInput();

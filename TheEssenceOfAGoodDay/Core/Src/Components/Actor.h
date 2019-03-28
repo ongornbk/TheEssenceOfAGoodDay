@@ -11,7 +11,8 @@
 		TRANSFORM_COMPONENT_TYPE,
 		COLLISION_COMPONENT_TYPE,
 		INPUT_COMPONENT_TYPE,
-		SPRITE_COMPONENT_TYPE
+		SPRITE_COMPONENT_TYPE,
+		CAMERA_COMPONENT_TYPE
 	};
 
 	template <class T>
@@ -83,6 +84,8 @@ namespace Components
 		DirectX::XMFLOAT4 rotation{};
 		DirectX::XMFLOAT4 scale{};
 
+		DirectX::XMFLOAT4X4 world{};
+
 		TransformComponent(Actor* par) : IComponent(par) {}
 		~TransformComponent() {}
 
@@ -136,6 +139,8 @@ namespace Components
 	{
 	public:
 
+		DirectX::XMFLOAT4X4* world;
+
 		SpriteComponent(Actor* par);
 
 		~SpriteComponent();
@@ -144,11 +149,24 @@ namespace Components
 
 		ComponentType GetType() const noexcept override;
 
+		 void Update();
+		 void Render(ID3D11DeviceContext* deviceContext,DirectX::XMFLOAT4X4 viewMatrix, DirectX::XMFLOAT4X4 projectionMatrix);
+
 	protected:
 
 		Sprite sprite;
 		ResourceHandle* shaderHandle{};
+		ResourceHandle* textureHandle{};
 
+	};
+
+	class CameraComponent : public IComponent
+	{
+	public:
+
+		void Initialize() override;
+
+		ComponentType GetType() const noexcept override;
 	};
 
 

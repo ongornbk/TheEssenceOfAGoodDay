@@ -7,12 +7,15 @@
 #include "..\Gfx\DirectX11\DirectX11Window.h"
 #include "testclass.h"
 
+static Testclass* tstcl{};
+
 
 
 static void _stdcall ddd(void)
 {
-
 	Engine::GetInstance()->Update();
+	tstcl->Tick();
+	tstcl->Render();
 }
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -40,6 +43,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	
 	//safe_delete(lua);
 
+	ConsoleHandle con;
+
 	Engine engine;
 
 
@@ -53,8 +58,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	Testclass tsc;
 
+	tstcl = &tsc;
 
-	ConsoleHandle con;
 
 	window->Update();
 
