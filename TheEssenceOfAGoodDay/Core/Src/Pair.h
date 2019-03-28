@@ -5,13 +5,12 @@
 template <class A,class B>
 struct Pair
 {
-	A first;
-	B second;
+	A first{};
+	B second{};
 
 	Pair()
 	{
-		first = A();
-		second = B();
+
 	}
 
 	Pair(A a) : first(a) {}

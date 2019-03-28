@@ -4,11 +4,13 @@
 #include "..\Src\Pair.h"
 #include "Resources\ResourceHandle.h"
 #include "Resources\ShaderResource.h"
+#include "Resources\TextureResource.h"
 
 
 class ResourceManager
 {
 	BinaryTree<Pair<String,IResource*>> m_shaders;
+	BinaryTree<Pair<String, IResource*>> m_textures;
 
 public:
 
@@ -17,6 +19,7 @@ public:
 	~ResourceManager();
 
 	ResourceHandle* GetShaderByName(const String name);
+	ResourceHandle* GetTextureByName(const String name);
 
 	static ResourceManager* GetInstance();
 

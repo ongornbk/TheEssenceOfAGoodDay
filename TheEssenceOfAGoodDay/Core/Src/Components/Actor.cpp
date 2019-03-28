@@ -12,7 +12,7 @@ Handle Actor::GetComponent(const ComponentType type)
 
 void Actor::InitializeComponents()
 {
-	for (auto component : m_components)
+	for (auto & component : m_components)
 	{
 		BEGIN:
 		try

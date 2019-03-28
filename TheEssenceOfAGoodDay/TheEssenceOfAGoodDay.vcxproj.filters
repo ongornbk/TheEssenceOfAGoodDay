@@ -174,6 +174,12 @@
     <ClCompile Include="Core\Src\Components\SpriteComponent.cpp">
       <Filter>Engine\Core\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Engine\Resources\TextureResource.cpp">
+      <Filter>Engine\Core\Engine\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Src\Components\CameraComponent.cpp">
+      <Filter>Engine\Core\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Src\corestd.h">
@@ -323,6 +329,9 @@
     <ClInclude Include="Gfx\DirectX11\Sprite.h">
       <Filter>Engine\Gfx\DirectX11</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Engine\Resources\TextureResource.h">
+      <Filter>Engine\Core\Engine\Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="C:\SDKS\LUA\lua53.dll" />
@@ -330,10 +339,6 @@
     <CopyFileToFolders Include="Core\Lua\Luas\test.lua">
       <Filter>Engine\Core\Lua\Scripts</Filter>
     </CopyFileToFolders>
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="Gfx\DirectX11\HLSL\texture.fx">
-      <Filter>Engine\Gfx\DirectX11\HLSL</Filter>
-    </FxCompile>
+    <CopyFileToFolders Include="Gfx\DirectX11\HLSL\texture.fx" />
   </ItemGroup>
 </Project>

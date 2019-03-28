@@ -30,11 +30,11 @@ public:
 
 	void Render()
 	{
-
+		m_sprite->Render(Engine::GetInstance()->GetDeviceContext(), DirectX::XMFLOAT4X4(), DirectX::XMFLOAT4X4());
 	}
 	void Tick(const float _In_ dt = 0) noexcept
 	{
-
+		m_sprite->Update();
 	}
 	void Release()
 	{

@@ -50,6 +50,11 @@ ID3D11Device* Engine::GetDevice()
 	return dx11.GetDevice();
 }
 
+ID3D11DeviceContext* Engine::GetDeviceContext()
+{
+	return dx11.GetDeviceContext();
+}
+
 HWND Engine::GetHWND() const noexcept
 {
 	return hwnd;
