@@ -1,61 +1,94 @@
 #include "Engine.h"
+#include "..\..\Src\testclass.h"
 
 namespace
 {
-	static Engine* instance = nullptr;
+	static Engine* m_instance{};
+	static Testclass* tst{};
 }
 
 Engine::Engine()
 {
-	instance = this;
-	input = new DirectInput8();
+	m_instance = this;
+	m_input = new DirectInput8();
 }
+
 
 Engine::~Engine()
 {
-	safe_delete(input);
+	safe_delete(m_input);
+	safe_release(tst);
 }
 
 Engine* Engine::GetInstance()
 {
-	assert(instance);
-	return instance;
+	assert(m_instance);
+	return m_instance;
 }
 
 Input* Engine::GetInput()
 {
-	return input;
+	return m_input;
 }
 
 void Engine::Update()
 {
-	input->Update();
+	m_input->Update();
+	tst->Tick();
 
-	const float f[4]{};
+	const float f[4] = {0.1f,0.2f,0.3f,0.f};
 
-	dx11.Begin(f[0],f[1],f[2],f[3]);
-	dx11.End();
+	m_dx11.Begin(f[0],f[1],f[2],f[3]);
+	tst->Render();
+	m_dx11.End();
 }
 
-void Engine::Initialize(const Window* window)
+void Engine::Initialize(Window* window)
 {
 	assert(window);
-	hwnd = window->GetHWND();
-	input->Initialize(window->GetHinstance(), hwnd, window->GetWidth(), window->GetHeight());
-	dx11.Initialize(window->GetWidth(), window->GetHeight(), hwnd, 0);
+	m_window = window;
+	m_hwnd = window->GetHWND();
+	m_input->Initialize(m_window->GetHinstance(), m_hwnd, m_window->GetWidth(), m_window->GetHeight());
+	m_dx11.Initialize(m_window->GetWidth(), m_window->GetHeight(), m_hwnd,GRAPHICS_FLAG_VSYNC);
+
+	tst = new Testclass();
+	tst->BeginPlay();
 }
 
 ID3D11Device* Engine::GetDevice()
 {
-	return dx11.GetDevice();
+	return m_dx11.GetDevice();
 }
 
 ID3D11DeviceContext* Engine::GetDeviceContext()
 {
-	return dx11.GetDeviceContext();
+	return m_dx11.GetDeviceContext();
 }
 
 HWND Engine::GetHWND() const noexcept
 {
-	return hwnd;
+	return m_hwnd;
+}
+
+int32 Engine::GetScreenHeight() const
+{
+	assert(m_window);
+	return m_window->GetHeight();
+}
+
+int32 Engine::GetScreenWidth() const
+{
+	assert(m_window);
+	return m_window->GetWidth();
+}
+
+float Engine::GetAspectRatio() const
+{
+	assert(m_window);
+	return ((float)m_window->GetWidth() / (float)m_window->GetHeight());
+}
+
+void Engine::Exit()
+{
+	PostQuitMessage(0);
 }

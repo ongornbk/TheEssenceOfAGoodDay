@@ -8,8 +8,12 @@ LRESULT CALLBACK WndProc(HWND hwnd, uint32_t message, WPARAM wParam, LPARAM lPar
 	{
 		PostQuitMessage(WM_CLOSE);
 		break;
-	}break;
+	}
+	case WM_QUIT:
+	{
 
+		break;
+	}
 	}
 
 	return DefWindowProc(hwnd, message, wParam, lParam);

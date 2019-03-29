@@ -12,3 +12,8 @@ ComponentType Components::CollisionComponent::GetType() const noexcept
 {
 	return ComponentType::COLLISION_COMPONENT_TYPE;
 }
+
+void Components::CollisionComponent::Release()
+{
+	delete (this);
+}

@@ -1,6 +1,12 @@
 #include "String.h"
 #include <cctype>
 
+#define STRING_DEBUG
+#ifdef STRING_DEBUG
+#include "Console/Console.h"
+#endif
+
+
 String::String()
 {
 
@@ -11,9 +17,21 @@ String::String(string str)
 	text = str;
 }
 
+String::String(wstring wstr)
+{
+	text = string(wstr.begin(), wstr.end());
+}
+
 String::String(const char *str)
 {
 	text = str;
+}
+
+String::String(const bool boolean)
+{
+	if (boolean)
+		text = "true";
+	else text = "false";
 }
 
 String::String(const char ch)
@@ -107,6 +125,17 @@ String& String::operator+=(const char* str)
 
 bool String::operator==(const String& B) const
 {
+
+#define STRING_DEBUG
+#ifdef STRING_DEBUG
+	ConsoleHandle con;
+	con < "String :: ";
+	con < *this;
+	con < " == ";
+	con < B;
+	con < endl;
+#endif
+
 	if (strcmp(this->c_str(), B.c_str()))
 		return false;
 	else return true;
@@ -114,6 +143,18 @@ bool String::operator==(const String& B) const
 
 bool String::operator < (const String& B) const
 {
+
+#define STRING_DEBUG
+#ifdef STRING_DEBUG
+	ConsoleHandle con;
+	con < "String :: ";
+	con < *this;
+	con < " < ";
+	con < B;
+	con < endl;
+#endif
+
+
 	const size_t length = std::min(text.length(), B.length());
 	for (uint64 i = 0u; i < length; i++)
 	{

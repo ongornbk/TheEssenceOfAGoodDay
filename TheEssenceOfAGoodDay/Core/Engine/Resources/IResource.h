@@ -1,5 +1,12 @@
 #pragma once
 #include "..\..\Src\mmemory.h"
+#include "..\..\Src\String.h"
+
+enum ResourceType
+{
+	SHADER_RESOURCE,
+	TEXTURE_RESOURCE
+};
 
 class IResource
 {
@@ -15,6 +22,9 @@ protected:
 
 	virtual void __load() = 0;
 	virtual void __unload() = 0;
+
+	virtual ResourceType __type() = 0;
+	virtual String       __name() = 0;
 
 	uint32  m_users{};
 };

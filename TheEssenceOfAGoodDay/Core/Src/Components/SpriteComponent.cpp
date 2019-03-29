@@ -9,8 +9,7 @@ Components::SpriteComponent::SpriteComponent(Actor* par) : IComponent(par)
 
 Components::SpriteComponent::~SpriteComponent()
 {
-	safe_delete(shaderHandle);
-	safe_delete(textureHandle);
+
 }
 
 
@@ -27,15 +26,14 @@ void Components::SpriteComponent::Initialize()
 
 	Engine* engine = Engine::GetInstance();
 
-	shaderHandle = ResourceManager::GetInstance()->GetShaderByName(String("texture.fx"));
-
+	shaderHandle = ResourceManager::GetInstance()->GetShaderByName(String("texture.fx"),ShaderType::TEXTURE_SHADER_TYPE);
 
 	textureHandle = ResourceManager::GetInstance()->GetTextureByName(String("sprite.png"));
 
 	ShaderResource* shar = (ShaderResource*)shaderHandle->mresource;
 	TextureResource* text = (TextureResource*)textureHandle->mresource;
 
-	sprite.Initialize(engine->GetDevice(), shar->GetShader(), text->GetTexture());
+	sprite.Initialize(engine->GetDevice(), shar->GetShader(), text->GetTexture(),true);
 }
 
 ComponentType Components::SpriteComponent::GetType() const noexcept
@@ -51,4 +49,11 @@ void Components::SpriteComponent::Update()
 void Components::SpriteComponent::Render(ID3D11DeviceContext* deviceContext, DirectX::XMFLOAT4X4 viewMatrix, DirectX::XMFLOAT4X4 projectionMatrix)
 {
 	sprite.Render(deviceContext,*world, viewMatrix, projectionMatrix);
+}
+
+void Components::SpriteComponent::Release()
+{
+	safe_delete(shaderHandle);
+	safe_delete(textureHandle);
+	delete (this);
 }

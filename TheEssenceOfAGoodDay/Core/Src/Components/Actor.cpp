@@ -45,6 +45,8 @@ void Actor::ReleaseComponents()
 {
 	for (auto && component : m_components)
 	{
-		safe_delete(component);
+		assert(component);
+		Components::IComponent* comp = (Components::IComponent*)component;
+		safe_release(comp);
 	}
 }

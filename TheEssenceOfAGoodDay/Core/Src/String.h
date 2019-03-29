@@ -2,6 +2,7 @@
 #include "Array.h"
 #include <sstream>
 
+
 class String
 {
 	string text;
@@ -10,7 +11,9 @@ public:
 	String();
 	~String();
 	explicit String(string str);
+	explicit String(wstring wstr);
 	explicit String(const char*);
+	explicit String(const bool);
 	explicit String(const char);
 	explicit String(const int32);
 	explicit String(const int64);

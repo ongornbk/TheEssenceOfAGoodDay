@@ -2,6 +2,12 @@
 #include "..\dx11.h"
 #include "..\..\..\Core\Src\String.h"
 
+enum ShaderType
+{
+	SHADER_TYPE,
+	TEXTURE_SHADER_TYPE
+};
+
 class Shader
 {
 private:

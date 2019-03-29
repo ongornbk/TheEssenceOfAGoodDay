@@ -7,15 +7,13 @@
 #include "..\Gfx\DirectX11\DirectX11Window.h"
 #include "testclass.h"
 
-static Testclass* tstcl{};
+
 
 
 
 static void _stdcall ddd(void)
 {
 	Engine::GetInstance()->Update();
-	tstcl->Tick();
-	tstcl->Render();
 }
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -44,24 +42,21 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	//safe_delete(lua);
 
 	ConsoleHandle con;
-
-	Engine engine;
-
-
-	WinApiWindow* window = new WinApiWindow();
-
-	window->Initialize(800, 600, String("Glw"), false);
-
-	engine.Initialize(window);
-
-	window->SetCallbackFunction(ddd);
-
-	Testclass tsc;
-
-	tstcl = &tsc;
+	{
+		Engine engine;
 
 
-	window->Update();
+		WinApiWindow* window = new WinApiWindow();
+
+		window->Initialize(800, 600, String("Glw"), false);
+
+		engine.Initialize(window);
+
+		window->SetCallbackFunction(ddd);
+
+
+		window->Update();
+	}
 
 	return 0;
 }

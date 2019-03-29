@@ -84,10 +84,12 @@ public:
 	void operator < (String str);
 	void operator < (const char* str);
 	void operator < (const unsigned char* str);
-	void operator < (char str);
-	void operator < (int32 integer);
+	void operator < (const char str);
+	void operator < (const int32 integer);
+	void operator < (const uint32 integer);
 	void operator < (const int64 integer);
 	void operator < (const uint64 integer);
+	void operator < (const bool boolean);
 	void operator << (String str);
 	void operator << (const char* str);
 	void operator << (const unsigned char* str);
