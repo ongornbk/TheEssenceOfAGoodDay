@@ -1,7 +1,7 @@
 #include "ResourceManager.h"
 #include "Engine.h"
 
-#define CONSOLEMANAGER_DEBUG
+//#define CONSOLEMANAGER_DEBUG
 #ifdef CONSOLEMANAGER_DEBUG
 #include "..\Src\Console\Console.h"
 #endif // CONSOLEMANAGER_DEBUG
@@ -37,7 +37,7 @@ ResourceManager::~ResourceManager()
 
 }
 
-ResourceHandle* ResourceManager::GetShaderByName(const String name)
+ResourceHandle* ResourceManager::GetShaderByName(const String name,const ShaderType type)
 {
 
 #ifdef CONSOLEMANAGER_DEBUG
@@ -59,7 +59,7 @@ ResourceHandle* ResourceManager::GetShaderByName(const String name)
 
 	Engine* engine = Engine::GetInstance();
 
-	ShaderResource* shader = new ShaderResource();
+	ShaderResource* shader = new ShaderResource(type);
 #pragma warning(disable : 4996)
 	string str = name.get_string();
 	wchar_t* wide_string = new wchar_t[str.length() + 1];

@@ -18,7 +18,7 @@ public:
 
 	~ResourceManager();
 
-	ResourceHandle* GetShaderByName(const String name);
+	ResourceHandle* GetShaderByName(const String name,const ShaderType type = ShaderType::SHADER_TYPE);
 	ResourceHandle* GetTextureByName(const String name);
 
 	static ResourceManager* GetInstance();

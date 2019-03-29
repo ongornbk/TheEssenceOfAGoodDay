@@ -207,7 +207,7 @@ void ConsoleHandle::operator < (const unsigned char* str)
 	print(mformat.c_str(), (char*)str, false);
 }
 
-void ConsoleHandle::operator< (char ch)
+void ConsoleHandle::operator< (const char ch)
 {
 	print(mformat.c_str(), String(ch).c_str(), false);
 }
@@ -215,6 +215,11 @@ void ConsoleHandle::operator< (char ch)
 void ConsoleHandle::operator< (const int32 integer)
 {
 	print(mformat.c_str(), String(integer).c_str(),false);
+}
+
+void ConsoleHandle::operator< (const uint32 integer)
+{
+	print(mformat.c_str(), String(integer).c_str(), false);
 }
 
 void ConsoleHandle::operator< (const int64 integer)
@@ -225,6 +230,11 @@ void ConsoleHandle::operator< (const int64 integer)
 void ConsoleHandle::operator< (const uint64 integer)
 {
 	print(mformat.c_str(), String(integer).c_str(), false);
+}
+
+void ConsoleHandle::operator< (const bool boolean)
+{
+	print(mformat.c_str(), String(boolean).c_str(), false);
 }
 
 void ConsoleHandle::operator>>(String& str)

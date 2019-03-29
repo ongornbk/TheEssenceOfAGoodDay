@@ -22,6 +22,7 @@ bool TextureResource::Load(const WCHAR* textureFileName)
 
 Texture* TextureResource::GetTexture() const noexcept
 {
+	assert(m_texture);
 	return m_texture;
 }
 
@@ -41,4 +42,14 @@ void TextureResource::__load()
 void TextureResource::__unload()
 {
 	safe_delete(m_texture);
+}
+
+ResourceType TextureResource::__type()
+{
+	return ResourceType::TEXTURE_RESOURCE;
+}
+
+String TextureResource::__name()
+{
+	return String(mname);
 }

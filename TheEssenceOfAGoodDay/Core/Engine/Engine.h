@@ -11,21 +11,27 @@ public:
 	Engine();
 	~Engine();
 
-	void Initialize(const Window* window);
+	void Initialize(Window* window);
 	void Update();
 
 	static Engine*       GetInstance();
 	ID3D11Device*        GetDevice();
 	ID3D11DeviceContext* GetDeviceContext();
-	HWND          GetHWND() const noexcept;
+	int32                GetScreenWidth() const;
+	int32                GetScreenHeight() const;
+	float                GetAspectRatio() const;
+	HWND                 GetHWND() const noexcept;
+
+	void                 Exit();
 
 	Input* GetInput();
 
 private:
 
-	HWND      hwnd;
-	Input*    input;
-	DirectX11 dx11;
+	HWND      m_hwnd;
+	Input*    m_input;
+	DirectX11 m_dx11;
+	Window*   m_window;
 
 	ResourceManager resources;
 };

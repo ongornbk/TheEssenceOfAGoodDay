@@ -25,3 +25,8 @@ enum MouseButton
 	MOUSE_LEFT_BUTTON = 0,
 	MOUSE_RIGHT_BUTTON = 1
 };
+
+enum KeyboardKey
+{
+	KEYBOARD_KEY_ESCAPE = 0x01
+};

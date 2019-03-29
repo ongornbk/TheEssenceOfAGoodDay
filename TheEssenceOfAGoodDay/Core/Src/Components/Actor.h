@@ -30,6 +30,7 @@ public:
 	virtual void        Tick(const float _In_ dt = 0) noexcept = 0;
 	virtual void        Release() = 0;
 	virtual void        BeginOverlap(const Actor* second) = 0;
+	virtual void        BeginPlay() = 0;
 
 	Handle GetComponent(const ComponentType type);
 
@@ -68,6 +69,7 @@ namespace Components
 
 		virtual void          Initialize()             = 0;
 		virtual ComponentType GetType() const noexcept = 0;
+		virtual void          Release() = 0;
 
 	protected:
 
@@ -93,6 +95,8 @@ namespace Components
 
 		ComponentType GetType() const noexcept override;
 
+		void Release() override;
+
 	};
 
 	class CollisionComponent : public IComponent
@@ -111,7 +115,7 @@ namespace Components
 
 		ComponentType GetType() const noexcept override;
 
-
+		void Release() override;
 
 	};
 
@@ -127,7 +131,11 @@ namespace Components
 
 		ComponentType GetType() const noexcept override;
 
-		bool MouseButtonPressed(const MouseButton button) const noexcept;
+		bool MouseButtonPressed(const MouseButton button) const;
+
+		bool KeyboardKeyHit(const KeyboardKey key) const;
+
+		void Release() override;
 
 	protected:
 
@@ -149,6 +157,8 @@ namespace Components
 
 		ComponentType GetType() const noexcept override;
 
+		void Release() override;
+
 		 void Update();
 		 void Render(ID3D11DeviceContext* deviceContext,DirectX::XMFLOAT4X4 viewMatrix, DirectX::XMFLOAT4X4 projectionMatrix);
 
@@ -164,9 +174,24 @@ namespace Components
 	{
 	public:
 
+		CameraComponent(Actor* par);
+
 		void Initialize() override;
 
 		ComponentType GetType() const noexcept override;
+
+		void Release() override;
+
+		void InitializeOrthoMatrix(const int32 screenwidth,const int32 screenheight,const float screennear,const float screenfar);
+		void InitializeProjectionMatrix(const float fow,const float screenaspect,const float screennear,const float screenfar);
+
+		void Update();
+
+		DirectX::XMFLOAT4X4 view;
+		DirectX::XMFLOAT4X4 projection;
+		DirectX::XMFLOAT4X4 ortho;
+		DirectX::XMFLOAT4*  position;
+		DirectX::XMFLOAT4*  rotation;
 	};
 
 

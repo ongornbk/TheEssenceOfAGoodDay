@@ -19,5 +19,7 @@ private:
 
 	void __load() override;
 	void __unload() override;
+	ResourceType __type() override;
+	String       __name() override;
 
 };

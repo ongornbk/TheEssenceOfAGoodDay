@@ -157,7 +157,6 @@
     <ClInclude Include="Core\Src\corestd.h" />
     <ClInclude Include="Core\Src\Cpu.h" />
     <ClInclude Include="Core\Src\Exception.h" />
-    <ClInclude Include="Core\Src\Float4.h" />
     <ClInclude Include="Core\Src\IBidirectionalElement.h" />
     <ClInclude Include="Core\Src\IBidirectionalStruct.h" />
     <ClInclude Include="Core\Src\IElement.h" />

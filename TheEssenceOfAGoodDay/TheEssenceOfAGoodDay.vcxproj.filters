@@ -272,9 +272,6 @@
     <ClInclude Include="Src\testclass.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Src\Float4.h">
-      <Filter>Engine\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Engine\Engine.h">
       <Filter>Engine\Core\Engine</Filter>
     </ClInclude>

@@ -2,7 +2,7 @@
 #include "Node.h"
 
 
-//#define BINARYTREE_DEBUG
+#define BINARYTREE_DEBUG
 #ifdef BINARYTREE_DEBUG
 #include "Console\Console.h"
 #endif // BINARYTREE_DEBUG
@@ -47,6 +47,18 @@ public:
 
 	void push(const T element)
 	{
+#ifdef BINARYTREE_DEBUG
+		{
+			ConsoleHandle con;
+			con < "void push(const T element) ::: CALLED";
+			con < endl;
+			con < "element = ";
+			con.format("%016llX");
+			con < memory_cast<uint64>(&element);
+			con.format();
+			con << endl;
+		}
+#endif // BINARYTREE_DEBUG
 		__size++;
 		if (root != nullptr)
 			push(element, root);
@@ -113,9 +125,9 @@ public:
 			con.format("%016llX");
 			con < memory_cast<uint64>(&element);
 			con.format();
-			con < " node = ";
+			con < " root = ";
 			con.format("%016llX");
-			con < memory_cast<uint64>(&node);
+			con < memory_cast<uint64>(&root);
 			con.format();
 			con < " foo = ";
 			con.format("%016llX");
