@@ -58,6 +58,7 @@ bool Texture::Initialize(ID3D11Device * device,const WCHAR* fileName)
 
 ID3D11ShaderResourceView * Texture::GetTexture()
 {
+	assert(m_texture);
 	return m_texture;
 }
 

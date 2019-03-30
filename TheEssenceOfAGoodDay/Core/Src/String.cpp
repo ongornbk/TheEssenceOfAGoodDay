@@ -59,6 +59,11 @@ String::String(const uint64 u)
 	text = std::to_string(u);
 }
 
+String::String(const double d)
+{
+	text = std::to_string(d);
+}
+
 String::~String()
 {
 	text.clear();

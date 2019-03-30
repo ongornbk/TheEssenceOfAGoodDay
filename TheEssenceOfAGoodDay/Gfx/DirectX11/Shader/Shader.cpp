@@ -97,6 +97,8 @@ bool Shader::Initialize(ID3D11Device* device,const HWND hwnd,const WCHAR* shader
 	return InitializeShader(device, hwnd, shaderFileName);
 }
 
+
+
 void Shader::Begin(ID3D11DeviceContext* deviceContext)
 {
 	deviceContext->OMSetBlendState(m_alphaBlendState, nullptr, 0xFFFFFFFF);

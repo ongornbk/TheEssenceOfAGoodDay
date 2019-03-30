@@ -1,7 +1,7 @@
 #include "ResourceManager.h"
 #include "Engine.h"
 
-//#define CONSOLEMANAGER_DEBUG
+#define CONSOLEMANAGER_DEBUG
 #ifdef CONSOLEMANAGER_DEBUG
 #include "..\Src\Console\Console.h"
 #endif // CONSOLEMANAGER_DEBUG

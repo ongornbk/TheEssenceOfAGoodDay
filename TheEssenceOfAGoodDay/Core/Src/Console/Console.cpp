@@ -1,7 +1,7 @@
 #include "Console.h"
 #include <conio.h>
 
-//#define CONSOLE_DEBUG
+#define CONSOLE_DEBUG
 
 namespace
 {
@@ -30,19 +30,20 @@ ConsoleHandle::ConsoleHandle()
 	uses++;
 	mformat = String("%s");
 	id = uses.load();
-	if (!instance)
-	{
-		instance = new Console();
+		if (!instance)
+		{
+			instance = new Console();
 #ifdef CONSOLE_DEBUG
-		print("Console created for %s\n", String(id).c_str());
+			print("Console created for %s\n", String(id).c_str());
 #endif
-	}
-	else
-	{
+		}
+		else
+		{
 #ifdef CONSOLE_DEBUG
-		print("CHandle created for %s\n", String(id).c_str());
+			print("CHandle created for %s\n", String(id).c_str());
 #endif
-	}
+		}
+	
 
 }
 

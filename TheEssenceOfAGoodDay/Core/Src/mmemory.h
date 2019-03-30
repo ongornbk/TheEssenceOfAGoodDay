@@ -13,6 +13,12 @@ inline ReturnType* mmalloc(const Type nitems)
 	return (ReturnType*)malloc((nitems) * sizeof(ReturnType));
 }
 
+template <class _Out_ ReturnType, class _In_ Type>
+inline ReturnType* mcalloc(const Type nitems)
+{
+	return (ReturnType*)calloc(nitems,sizeof(ReturnType));
+}
+
 template <class ReturnType,class A, class _In_ Type>
 inline ReturnType* mrealloc(A& ptr,const Type nitems)
 {

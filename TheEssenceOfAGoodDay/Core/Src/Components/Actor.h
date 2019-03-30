@@ -86,7 +86,7 @@ namespace Components
 		DirectX::XMFLOAT4 rotation{};
 		DirectX::XMFLOAT4 scale{};
 
-		DirectX::XMFLOAT4X4 world{};
+		DirectX::XMFLOAT4X4 world;
 
 		TransformComponent(Actor* par) : IComponent(par) {}
 		~TransformComponent() {}
@@ -96,6 +96,8 @@ namespace Components
 		ComponentType GetType() const noexcept override;
 
 		void Release() override;
+
+		void Update();
 
 	};
 
@@ -190,8 +192,10 @@ namespace Components
 		DirectX::XMFLOAT4X4 view;
 		DirectX::XMFLOAT4X4 projection;
 		DirectX::XMFLOAT4X4 ortho;
-		DirectX::XMFLOAT4*  position;
-		DirectX::XMFLOAT4*  rotation;
+		DirectX::XMFLOAT4*  transform_pos;
+		DirectX::XMFLOAT4*  transform_rot;
+		DirectX::XMVECTOR  position;
+		DirectX::XMVECTOR  rotation;
 	};
 
 

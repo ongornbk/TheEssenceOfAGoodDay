@@ -10,8 +10,8 @@ void Components::CameraComponent::Initialize()
 	IComponent* transform = (IComponent*)parent->GetComponent(ComponentType::TRANSFORM_COMPONENT_TYPE);
 	if (transform)
 	{
-		position = &(component_cast<TransformComponent>(transform))->position;
-		rotation = &(component_cast<TransformComponent>(transform))->rotation;
+		transform_pos = &(component_cast<TransformComponent>(transform))->position;
+		transform_rot = &(component_cast<TransformComponent>(transform))->rotation;
 	}
 	else throw(exception("Exception at Components::CollisionComponent::Initialize -> No TransformComponent!"));
 }
@@ -34,15 +34,15 @@ void Components::CameraComponent::InitializeProjectionMatrix(const float fow, co
 void Components::CameraComponent::Update()
 {
 
-	DirectX::XMMATRIX rotationMatrix = DirectX::XMMatrixRotationRollPitchYaw((*rotation).x, (*rotation).y, (*rotation).z);
+	position = _mm_set_ps(transform_pos->x, transform_pos->y, transform_pos->z, transform_pos->w);
+	rotation = _mm_set_ps(transform_rot->x, transform_rot->y, transform_rot->z, transform_rot->w);
+	DirectX::XMMATRIX rotationMatrix = DirectX::XMMatrixRotationRollPitchYaw(rotation.m128_f32[0], rotation.m128_f32[1], rotation.m128_f32[2]);
 
 	DirectX::XMVECTOR lookat = XMVector3TransformCoord(DirectX::XMVectorSet(0.0f, 0.0f, 1.0f, 0.0f), rotationMatrix);
 	DirectX::XMVECTOR up = XMVector3TransformCoord(DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), rotationMatrix);
 
-	float f[4] = { position->x,position->y,position->z,position->w };
-	__m128 pos = _mm_load_ps(f);
-	lookat = _mm_add_ps(lookat, pos);
-	DirectX::XMStoreFloat4x4(&view, DirectX::XMMatrixLookAtLH(pos, lookat, up));
+	lookat = DirectX::XMVectorAdd(lookat,position);
+	DirectX::XMStoreFloat4x4(&view, DirectX::XMMatrixLookAtLH(position, lookat, up));
 }
 
 void Components::CameraComponent::Release()

@@ -21,6 +21,7 @@ public:
 	int32                GetScreenHeight() const;
 	float                GetAspectRatio() const;
 	HWND                 GetHWND() const noexcept;
+	DirectX11*           GetGraphics() const noexcept;
 
 	void                 Exit();
 
@@ -28,10 +29,10 @@ public:
 
 private:
 
-	HWND      m_hwnd;
-	Input*    m_input;
-	DirectX11 m_dx11;
-	Window*   m_window;
+	HWND       m_hwnd;
+	Input*     m_input;
+	DirectX11* m_dx11;
+	Window*    m_window;
 
 	ResourceManager resources;
 };
