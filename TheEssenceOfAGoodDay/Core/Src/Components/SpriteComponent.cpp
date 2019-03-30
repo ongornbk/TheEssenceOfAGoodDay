@@ -33,7 +33,11 @@ void Components::SpriteComponent::Initialize()
 	ShaderResource* shar = (ShaderResource*)shaderHandle->mresource;
 	TextureResource* text = (TextureResource*)textureHandle->mresource;
 
-	sprite.Initialize(engine->GetDevice(), shar->GetShader(), text->GetTexture(),true);
+
+
+	sprite.Initialize(engine->GetDevice(), shar->GetShader(), text->GetTexture());
+
+
 }
 
 ComponentType Components::SpriteComponent::GetType() const noexcept

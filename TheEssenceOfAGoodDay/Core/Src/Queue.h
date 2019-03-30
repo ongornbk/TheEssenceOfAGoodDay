@@ -89,4 +89,10 @@ public:
 		return __head;
 	}
 
+	void clear() override
+	{
+		__size = 0u;
+		safe_delete(__head);
+	}
+
 };

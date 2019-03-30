@@ -6,8 +6,8 @@ struct ThreadPoolHandle
 	ThreadPoolHandle();
 	~ThreadPoolHandle();
 
+	void operator << (tpTask task);
 
-	void operator << (Function task);
 	ThreadPool* operator ->();
 	void wait();
 

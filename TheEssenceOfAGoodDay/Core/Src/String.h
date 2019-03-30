@@ -19,6 +19,7 @@ public:
 	explicit String(const int64);
 	explicit String(const uint32);
 	explicit String(const uint64);
+	explicit String(const double);
 
 	string get_string() const noexcept;
 	const char* c_str() const noexcept;

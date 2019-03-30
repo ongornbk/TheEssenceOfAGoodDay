@@ -1,6 +1,6 @@
 #include "IResource.h"
 
-//#define IRESOURCE_DEBUG
+#define IRESOURCE_DEBUG
 #ifdef IRESOURCE_DEBUG
 #include "..\..\Src\Console\Console.h"
 #endif // IRESOURCE_DEBUG

@@ -1,6 +1,8 @@
 #include "..\Core\Src\Console\Console.h"
 #include "..\Core\Src\List.h"
 #include "..\Core\Src\Array.h"
+#include "..\Core\Src\Array2D.h"
+#include "..\Core\Src\LinkedList2D.h"
 #include "..\Core\Engine\Engine.h"
 #include "..\Core\Src\Threading\Thread.h"
 #include "..\Gfx\OpenGl\OpenGlWindow.h"
@@ -25,38 +27,21 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
-	//LuaManager* lua = new LuaManager();
-	
-	
-	//Thread winapiThread(a, NULL, new WinApiWindow());
-	//Thread dxThread(dxThreadf, NULL, new DirectX11Window());
-
-	
-	
-	//Thread luaT(l, NULL,lua);
-	
-	//luaT.join();
-	//dxThread.join();
-	//winapiThread.join();
-	
-	//safe_delete(lua);
-
 	ConsoleHandle con;
-	{
-		Engine engine;
 
+	Engine engine;
 
-		WinApiWindow* window = new WinApiWindow();
+	WinApiWindow* window = new WinApiWindow();
+	
+	window->Initialize(800, 600, String("Glw"), false);
 
-		window->Initialize(800, 600, String("Glw"), false);
+	engine.Initialize(window);
 
-		engine.Initialize(window);
+	window->SetCallbackFunction(ddd);
 
-		window->SetCallbackFunction(ddd);
+	window->Update();
 
-
-		window->Update();
-	}
+	con.pause();
 
 	return 0;
 }

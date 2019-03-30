@@ -28,5 +28,9 @@ enum MouseButton
 
 enum KeyboardKey
 {
-	KEYBOARD_KEY_ESCAPE = 0x01
+	KEYBOARD_KEY_ESCAPE = 0x01,
+	KEYBOARD_KEY_1 = 0x02,
+	KEYBOARD_KEY_2 = 0x03,
+	KEYBOARD_KEY_3 = 0x04,
+	KEYBOARD_KEY_4 = 0x05
 };

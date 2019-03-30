@@ -5,6 +5,7 @@
 #include <mutex>
 #include <shared_mutex>
 #include <condition_variable>
+#include <thread>
 #include <string>
 #include <fstream>
 #include <vector>
@@ -12,6 +13,7 @@
 #include <xmmintrin.h>
 #include <sal.h>
 #include <exception>
+#include <ctime>
 
 #include <Windows.h>
 
@@ -22,6 +24,7 @@ using std::lock_guard;
 using std::unique_lock;
 using std::shared_mutex;
 using std::condition_variable;
+using std::thread;
 using std::string;
 using std::wstring;
 using std::fstream;

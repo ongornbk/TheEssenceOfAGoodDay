@@ -2,79 +2,59 @@
 
 ThreadPool* ThreadPool::m_instance = nullptr;
 
-static void _cdecl ThreadLoop(void* pt)
-{
-	ThreadPool* pool = (ThreadPool*)pt;
-
-
-	while (pool->_running.load()) {
-		unique_lock <mutex> lk(pool->_mutex);
-		if (!pool->_taskQueue.empty()) {
-			Task task = pool->_taskQueue.get();
-			pool->_taskQueue.pop();
-			pool->_mutex.unlock();
-			task.execute();
-			pool->_taskNum--;
-		}
-		else {
-			pool->_cv.wait(lk);
-		}
-	}
-}
-
-ThreadPool::ThreadPool(size_t num_threads) : _taskNum(0)
-{
+ThreadPool::ThreadPool(size_t num_threads) :
+	_taskNum(0) {
 	_running.store(true);
 	m_instance = this;
+	auto thread_loop = [&](size_t id) {
+
+		while (_running.load()) {
+			unique_lock<mutex> lk(_mutex);
+			if (!_taskQueue.empty()) {
+				class IElement<tpTask>* work = _taskQueue.front();
+				_taskQueue.pop();
+				lk.unlock();
+				work->data();
+				_taskNum--;
+			}
+			else
+			{
+				cv.wait(lk);
+			}
+		}
+	};
 	_threads.reserve(num_threads);
 	for (size_t i = 0; i < num_threads; i++) {
-		_threads.push_back(Thread(ThreadLoop, NULL, this));
+		_threads.push_back(std::thread(thread_loop, i));
 	}
-
 }
 
-	ThreadPool::~ThreadPool()
-{
-		m_instance = nullptr;
-		_running.store(false);
-		_cv.notify_all();
-		for (auto&& t : _threads) t.join();
+ThreadPool::~ThreadPool() {
+	_running.store(false);
+	cv.notify_all();
+	for (auto&& t : _threads) t.join();
 }
 
-void ThreadPool::push(Function work)
-{
-	Task task;
-	task.foo = work;
-	task.arg = nullptr;
-
+void ThreadPool::push(tpTask work) {
 	unique_lock<mutex> lk(_mutex);
-		_taskQueue.push(task);
-		_taskNum++;
-		_cv.notify_one();
-}
-
-void ThreadPool::push(Function work,void* argument)
-{
-	Task task;
-	task.foo = work;
-	task.arg = argument;
-
-	unique_lock<mutex> lk(_mutex);
-	_taskQueue.push(task);
+	_taskQueue.push(work);
 	_taskNum++;
-	_cv.notify_one();
+	cv.notify_one();
 }
 
-void ThreadPool::clear()
-{
+void ThreadPool::clear() {
 	unique_lock<mutex> lk(_mutex);
 	_taskNum -= _taskQueue.size();
+	_taskQueue.clear();
 }
 
-void ThreadPool::wait()
-{
+void ThreadPool::wait() {
 	while (_taskNum.load() > 0) {
 		std::this_thread::yield();
 	}
 }
-	
+
+bool ThreadPool::isActive() noexcept
+{
+	return (bool)m_instance;
+}

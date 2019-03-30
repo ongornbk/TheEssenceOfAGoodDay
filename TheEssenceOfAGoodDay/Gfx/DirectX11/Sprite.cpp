@@ -73,19 +73,21 @@ void Sprite::Render(ID3D11DeviceContext * deviceContext, DirectX::XMFLOAT4X4 wor
 {
 	if (m_texture)
 	{
+		m_shader->Begin(deviceContext);
 		m_shader->SetShaderParameters(deviceContext, m_texture->GetTexture());
 		m_shader->SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix);
 		m_vertexBuffer->Render(deviceContext);
+		m_shader->End(deviceContext);
 	}
 }
 
 void Sprite::Render(ID3D11DeviceContext * deviceContext, DirectX::XMFLOAT4X4 worldMatrix, DirectX::XMFLOAT4X4 viewMatrix, DirectX::XMFLOAT4X4 projectionMatrix, Shader* shader)
 {
-	shader->Begin(deviceContext);
+	
 	shader->SetShaderParameters(deviceContext, m_texture->GetTexture());
 	shader->SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix);
 	m_vertexBuffer->Render(deviceContext);
-	shader->End(deviceContext);
+	
 }
 
 bool Sprite::ResizeTexture(ID3D11Device * device,const float size,const bool writeable)

@@ -242,12 +242,14 @@ bool VertexBuffer::InitializePart(ID3D11Device * device, Shader * shader,const f
 
 void VertexBuffer::Render(ID3D11DeviceContext * deviceContext)
 {
+
 	constexpr uint32_t stride = sizeof(SpriteVertexType);
 	constexpr uint32_t offset = 0u;
 
 	deviceContext->IASetVertexBuffers(0u, 1u, &m_vertexBuffer, &stride, &offset);
-	deviceContext->IASetIndexBuffer(m_indexBuffer, DXGI_FORMAT_R32_UINT, 0);
-	deviceContext->DrawIndexed(m_indexCount, 0u, 0);
+	deviceContext->IASetIndexBuffer(m_indexBuffer, DXGI_FORMAT_R32_UINT, 0u);
+	deviceContext->DrawIndexed(m_indexCount, 0u, 0u);
+
 }
 
 bool VertexBuffer::ResizeTexture(ID3D11Device * device,const float size,const bool writeable)

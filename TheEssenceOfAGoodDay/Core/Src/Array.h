@@ -12,7 +12,7 @@ public:
 		m_capacity = 2u;
 		m_data = mmalloc<T>(m_capacity);
 	}
-	Array(uint32 capacity)
+	Array(const uint32 capacity)
 	{
 		assert(capacity);
 		m_size = 0u;
@@ -25,27 +25,27 @@ public:
 		mfree(m_data);
 	}
 
-	T* begin()
+	T* begin() const
 	{
 		return m_data;
 	}
-	T* end()
+	T* end() const
 	{
 		return (m_data + m_size);
 	}
-	T& operator[](uint32 element)
+	T& operator[](const uint32 element) const
 	{
 		assert(element < m_size);
 		return *(m_data + element);
 	}
 
-	T& at(uint32 element)
+	T& at(const uint32 element) const
 	{
 		assert(element < m_size);
 		return *(m_data + element);
 	}
 
-	void resize(uint32 size = m_capacity)
+	void resize(const uint32 size = m_capacity)
 	{
 		m_size = size;
 		if (m_size > m_capacity)
@@ -55,7 +55,7 @@ public:
 		}
 	}
 
-	void reserve(uint32 capacity)
+	void reserve(const uint32 capacity)
 	{
 		if (capacity > m_capacity)
 		{

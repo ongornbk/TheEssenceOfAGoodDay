@@ -152,6 +152,8 @@
     <ClInclude Include="Core\Engine\Resources\TextureResource.h" />
     <ClInclude Include="Core\Lua\Lua.h" />
     <ClInclude Include="Core\Lua\LuaPointer.h" />
+    <ClInclude Include="Core\Src\Array2D.h" />
+    <ClInclude Include="Core\Src\LinkedList2D.h" />
     <ClInclude Include="Core\Src\Components\Actor.h" />
     <ClInclude Include="Core\Src\Console\Console.h" />
     <ClInclude Include="Core\Src\corestd.h" />
@@ -160,6 +162,8 @@
     <ClInclude Include="Core\Src\IBidirectionalElement.h" />
     <ClInclude Include="Core\Src\IBidirectionalStruct.h" />
     <ClInclude Include="Core\Src\IElement.h" />
+    <ClInclude Include="Core\Src\IQuadDirectionalElement.h" />
+    <ClInclude Include="Core\Src\IQuadDirectionalStruct.h" />
     <ClInclude Include="Core\Src\IStruct.h" />
     <ClInclude Include="Core\Src\BinaryTree.h" />
     <ClInclude Include="Core\Src\List.h" />
@@ -192,6 +196,7 @@
     <ClInclude Include="Gfx\OpenGl\OpenGlWindow.h" />
     <ClInclude Include="Input\DirectInput8\DirectInput8.h" />
     <ClInclude Include="Input\Input.h" />
+    <ClInclude Include="Src\mcanera.h" />
     <ClInclude Include="Src\testclass.h" />
   </ItemGroup>
   <ItemGroup>

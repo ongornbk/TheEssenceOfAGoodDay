@@ -35,6 +35,7 @@ bool ShaderResource::Load(ID3D11Device * device,const HWND hwnd,const WCHAR* sha
 
 Shader* ShaderResource::GetShader() const noexcept
 {
+	assert(m_shader);
 	return m_shader;
 }
 

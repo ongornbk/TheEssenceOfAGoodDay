@@ -10,7 +10,7 @@ ThreadPoolHandle::~ThreadPoolHandle()
 	pool->wait();
 }
 
-void ThreadPoolHandle::operator<<(Function task)
+void ThreadPoolHandle::operator<<(tpTask task)
 {
 	pool->push(task);
 }
